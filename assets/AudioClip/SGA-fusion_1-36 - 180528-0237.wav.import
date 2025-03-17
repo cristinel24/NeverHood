@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://nol0yjqpa6xt"
+path="res://.godot/imported/SGA-fusion_1-36 - 180528-0237.wav-6dbb4c32f0221da03e4b40a55740a497.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/SGA-fusion_1-36 - 180528-0237.wav"
+dest_files=["res://.godot/imported/SGA-fusion_1-36 - 180528-0237.wav-6dbb4c32f0221da03e4b40a55740a497.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

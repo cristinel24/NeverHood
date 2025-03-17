@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://biav1j6swr86o"
+path="res://.godot/imported/euthanasia rollercoaster_191206-1607_Loop_broken.wav-c0be06aec9c744857c811b25bbd29c41.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/euthanasia rollercoaster_191206-1607_Loop_broken.wav"
+dest_files=["res://.godot/imported/euthanasia rollercoaster_191206-1607_Loop_broken.wav-c0be06aec9c744857c811b25bbd29c41.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

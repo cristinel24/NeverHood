@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dip1xm375txor"
+path="res://.godot/imported/euthanasia rollercoaster_191205-1945_Loop.wav-2bd920c20b8ad105eafb880f9ef22305.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/euthanasia rollercoaster_191205-1945_Loop.wav"
+dest_files=["res://.godot/imported/euthanasia rollercoaster_191205-1945_Loop.wav-2bd920c20b8ad105eafb880f9ef22305.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

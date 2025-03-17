@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db5usjvsies0t"
+path="res://.godot/imported/Door - Stone Long 02Shorten.wav-28917ec273a29348bfaadb35c6128744.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/Door - Stone Long 02Shorten.wav"
+dest_files=["res://.godot/imported/Door - Stone Long 02Shorten.wav-28917ec273a29348bfaadb35c6128744.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

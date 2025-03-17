@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ma6tujatynqw"
+path="res://.godot/imported/AntArmy  big brother.wav-99c0184eb98f1d50c14abebe366159bc.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/AntArmy  big brother.wav"
+dest_files=["res://.godot/imported/AntArmy  big brother.wav-99c0184eb98f1d50c14abebe366159bc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

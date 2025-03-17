@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://er6htdcvg815"
+path="res://.godot/imported/OLD STUFF_Doorknob_Creaking_05_DoorOpen.wav-9084428bc9616c6656d073bd20b1e9ca.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/OLD STUFF_Doorknob_Creaking_05_DoorOpen.wav"
+dest_files=["res://.godot/imported/OLD STUFF_Doorknob_Creaking_05_DoorOpen.wav-9084428bc9616c6656d073bd20b1e9ca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

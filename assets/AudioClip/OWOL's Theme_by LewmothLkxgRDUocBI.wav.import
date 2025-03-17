@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gk2j3a1hsmju"
+path="res://.godot/imported/OWOL's Theme_by LewmothLkxgRDUocBI.wav-d3f7904defb80ad0e73a2e341f29f285.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/OWOL's Theme_by LewmothLkxgRDUocBI.wav"
+dest_files=["res://.godot/imported/OWOL's Theme_by LewmothLkxgRDUocBI.wav-d3f7904defb80ad0e73a2e341f29f285.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

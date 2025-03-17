@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bne515na22tas"
+path="res://.godot/imported/Door - SpaceShip_hatchway_06.wav-dbb671a6403f8950ae3246ae42a9b2f2.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/Door - SpaceShip_hatchway_06.wav"
+dest_files=["res://.godot/imported/Door - SpaceShip_hatchway_06.wav-dbb671a6403f8950ae3246ae42a9b2f2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

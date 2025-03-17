@@ -1,0 +1,34 @@
+Key,Description,Standard
+JumpTutorialLabel,,JUMP
+GameOverWarningYesLabel,,YES
+GameOverWarningNoLabel,,NO
+GameOverWarningDescriptionLabel2,,Are you sure?
+GameOverWarningDescriptionLabel,,Going back to menu will reset your current progression \nto the last save point
+GameOverWarningTitleLabel,,Warning
+GameOverMenuLabel,,Back to menu
+GameOverRetryLabel,,Retry
+GameOverRetryFromLastCheckPointLabel,,Retry from last Checkpoint
+GameOverTitleLabel,,Game Over
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 OnNpcHealth - 7 Ending,,It has been good
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - GlitchingInSong4Stop,,Do you have/The courage to end it?
+CHARACTER.Universe,,Universe
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 OnNpcHealth - 14,,We are getting closer to the end
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 OnNpcHealth - 21,,Did you enjoy your time?
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - bubble7,,You can do it/I believe in you
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - GlitchingInSongStop,,It will all end now
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - HeartPump7,,You have fought well
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - GlitchEndMuffled,,We are reaching the end of time
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - Start,,OUR LAST BATTLE/YOU CAN DO IT/DEFEAT ME/WE WILL FINALLY/CEASE TO EXIST
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - BeautifulPiano,,"No, It can't end this way"
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - AllTheText,,IT IS HARD/BUT IT IS THE ONLY WAY/DEFEAT ME/AND IT WILL ALL/FINALLY END
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - ItsHere,,It has been good/Farewell
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - TheEndIsHere,,You gotten so far
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - HeartPump14,,Is still left
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - HeartPump3,,It has not been easy
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Event,,DEFLECT MY ATTACKS RED/KILL US
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - HeartPump12,,The most important one
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - SoYouReady,,You are/The beginning of the end
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - 1st3rd,,We lived for so long/It is time we ended it
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 OnNpcHealth - 0,,AAAAAAAAAAAAAAAAAAAAAAAAAA
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 OnNpcHealth - 11 change song,,The fabrics of reality is breaking
+ExecuteMultipleDialogueCommand.UniverseSuicideBattle V2 Section - GlitchingInSong2Stop,,You have done well

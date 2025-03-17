@@ -1,0 +1,4 @@
+12288 = E "section Clap"
+15360 = E "section Snap"
+18432 = E "section Downward"
+26688 = E "section Defeat"

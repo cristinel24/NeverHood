@@ -1,0 +1,6 @@
+5184 = E "section TinyGuitar"
+8448 = E "section Bass"
+10176 = E "section Claps"
+18432 = E "section Extra"
+23424 = E "section Ending"
+24912 = E "section Death"

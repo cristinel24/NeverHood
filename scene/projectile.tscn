@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0mka2ciqivx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_3fuhx"]
+
+[node name="Projectile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(172, 158)
+texture = SubResource("ImageTexture_3fuhx")

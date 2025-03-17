@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://jw2nhcxau1x3"
+path="res://.godot/imported/Flower Shop (Finished).wav-8bd7fd6fca3a93f9b871a830d14d1c90.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/Flower Shop (Finished).wav"
+dest_files=["res://.godot/imported/Flower Shop (Finished).wav-8bd7fd6fca3a93f9b871a830d14d1c90.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://qpxif4sl7v45"
+path="res://.godot/imported/Neko Soup_Lewmoth.wav-52e0a77085cdda405f0f98a8cc4d0ce8.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/Neko Soup_Lewmoth.wav"
+dest_files=["res://.godot/imported/Neko Soup_Lewmoth.wav-52e0a77085cdda405f0f98a8cc4d0ce8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

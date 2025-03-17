@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs3bs0a228hqw"
+path="res://.godot/imported/City Ver 4.wav-ed3791650249362c5d9a84144d2e1e35.sample"
+
+[deps]
+
+source_file="res://assets/AudioClip/City Ver 4.wav"
+dest_files=["res://.godot/imported/City Ver 4.wav-ed3791650249362c5d9a84144d2e1e35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

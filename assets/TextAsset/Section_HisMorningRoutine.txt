@@ -1,0 +1,6 @@
+192 = E "section Booting"
+1488 = E "section Idle"
+2976 = E "section Crazy"
+20640 = E "section Exhausted"
+22656 = E "section BreatheIN"
+39840 = E "section Death"

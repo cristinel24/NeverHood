@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2oaym2gtkny7"
+path="res://.godot/imported/R_FaceOfDeathFaith.obj-c1de1492329cf0f1f3bbcf5bd33d0215.mesh"
+
+[deps]
+
+files=["res://.godot/imported/R_FaceOfDeathFaith.obj-c1de1492329cf0f1f3bbcf5bd33d0215.mesh"]
+
+source_file="res://assets/Mesh/R_FaceOfDeathFaith.obj"
+dest_files=["res://.godot/imported/R_FaceOfDeathFaith.obj-c1de1492329cf0f1f3bbcf5bd33d0215.mesh", "res://.godot/imported/R_FaceOfDeathFaith.obj-c1de1492329cf0f1f3bbcf5bd33d0215.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
