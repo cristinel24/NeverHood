@@ -19,7 +19,10 @@ var original_y = 0.0
 var is_moving = false
 var is_charging = false
 
-@onready var animated_sprite: AnimatedSprite2D = $Character
+@onready var animated_sprite: AnimatedSprite2D = $Character_Base
+#@onready var animated_sprite: AnimatedSprite2D = $Character_Knight
+#@onready var animated_sprite: AnimatedSprite2D = $Character_Tennis
+
 @onready var dash: AnimatedSprite2D = $Dash
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var jump_smoke: AnimatedSprite2D = $JumpSmoke
@@ -110,6 +113,7 @@ func _physics_process(delta: float) -> void:
 		if not is_jumping and not is_charging and Input.is_action_just_pressed("jump"):
 			is_jumping = true
 			jump_timer = 0.0
+			collision_shape.disabled = true
 	
 	if is_jumping:
 		jump_timer += delta
@@ -117,6 +121,8 @@ func _physics_process(delta: float) -> void:
 		if t >= 1.0:
 			is_jumping = false
 			position.y = original_y
+			collision_shape.disabled = false
+
 			jump_smoke.position = get_landing_smoke_position()
 			var random_animation = "smoke_1" if randi() % 2 == 0 else "smoke_2"
 			jump_smoke.play(random_animation)

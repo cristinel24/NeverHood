@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://da0mka2ciqivx"]
+[gd_scene load_steps=4 format=3 uid="uid://da0mka2ciqivx"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_3fuhx"]
+[ext_resource type="Script" uid="uid://0h4vew53v18x" path="res://scripts/projectile.gd" id="1_u6xv6"]
+[ext_resource type="Texture2D" uid="uid://cxyf8js0banhx" path="res://assets/Sprite/ProjectileMarkers_Moon.png" id="2_u6xv6"]
 
-[node name="Projectile" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6xv6"]
+height = 64.0235
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_u6xv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(172, 158)
-texture = SubResource("ImageTexture_3fuhx")
+position = Vector2(3, 11)
+rotation = -0.383972
+scale = Vector2(1.68946, 1.77585)
+skew = -0.853466
+texture = ExtResource("2_u6xv6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 11)
+rotation = 1.55509
+shape = SubResource("CapsuleShape2D_u6xv6")

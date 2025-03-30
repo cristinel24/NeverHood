@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://8x2stmx0ghml"]
+[gd_scene load_steps=26 format=3 uid="uid://8x2stmx0ghml"]
 
 [ext_resource type="PackedScene" uid="uid://ry1x18d8fpi4" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="1_dbls1"]
+[ext_resource type="Texture2D" uid="uid://b67yq523lec7" path="res://assets/Texture2D/ClubBackground.png" id="1_p1ry8"]
 [ext_resource type="Texture2D" uid="uid://bmtg6ne3a77iq" path="res://assets/Texture2D/Clubber.png" id="3_33cqm"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5kiuu"]
+[ext_resource type="PackedScene" uid="uid://c5px7yvakmssq" path="res://scene/enemy.tscn" id="3_xwcet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33cqm"]
 atlas = ExtResource("3_33cqm")
@@ -140,28 +140,38 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5kiuu"]
+
 [node name="Game" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(21.5, 34.5)
+scale = Vector2(1.84542, 1.96173)
+texture = ExtResource("1_p1ry8")
+
+[node name="Enemy" parent="." instance=ExtResource("3_xwcet")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(-7, -125)
+scale = Vector2(1.96094, 1.95313)
+sprite_frames = SubResource("SpriteFrames_ca6q5")
+autoplay = "default"
+frame_progress = 0.477939
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(190, 164)
-scale = Vector2(1.75, 1.75)
+position = Vector2(197, 158)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_dbls1")
 
 [node name="Player" parent="." instance=ExtResource("1_5kiuu")]
 position = Vector2(-6, 233)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.25, 1.25)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-5, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_5kiuu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -134)
-scale = Vector2(1.96094, 1.95313)
-sprite_frames = SubResource("SpriteFrames_ca6q5")
-autoplay = "default"
-frame_progress = 0.936702
