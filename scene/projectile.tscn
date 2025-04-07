@@ -4,19 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://cxyf8js0banhx" path="res://assets/Sprite/ProjectileMarkers_Moon.png" id="2_u6xv6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6xv6"]
-height = 64.0235
+radius = 6.99914
+height = 26.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="projectile" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_u6xv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3, 11)
+position = Vector2(-2.86102e-06, 0)
 rotation = -0.383972
-scale = Vector2(1.68946, 1.77585)
+scale = Vector2(1, 1.052)
 skew = -0.853466
 texture = ExtResource("2_u6xv6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 11)
-rotation = 1.55509
+physics_interpolation_mode = 2
+rotation = 1.57079
 shape = SubResource("CapsuleShape2D_u6xv6")

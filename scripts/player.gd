@@ -8,9 +8,9 @@ const MAX_TILE_INDEX = NUM_TILES - 1
 
 var current_tile: int = MIDDLE_TILE_INDEX
 
-const JUMP_DURATION = 0.2
+const JUMP_DURATION = 0.15
 const JUMP_HEIGHT = 35.0
-const MOVE_DURATION = 0.14
+const MOVE_DURATION = 0.1
 
 var is_jumping = false
 var jump_timer = 0.0

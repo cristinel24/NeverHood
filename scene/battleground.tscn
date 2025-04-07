@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bllkjmm50mii"]
+
+[ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="1_0m2nv"]
+
+[sub_resource type="Curve2D" id="Curve2D_0m2nv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -112, -24, 0, 0, 0, 0, -208, 232)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_3thhl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, -8, 0, 0, 0, 0, -104, 232)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_n0mh7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -8, 0, 0, 0, 0, 0, -8, 232)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_281ah"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 48, -8, 0, 0, 0, 0, 96, 232)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_c7juf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 104, -16, 0, 0, 0, 0, 200, 232)
+}
+point_count = 2
+
+[node name="Battleground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(197, 158)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_0m2nv")
+
+[node name="Tile_1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0m2nv")
+
+[node name="Tile_2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3thhl")
+
+[node name="Tile_3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_n0mh7")
+
+[node name="Tile_4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_281ah")
+
+[node name="Tile_5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_c7juf")
