@@ -26,7 +26,7 @@ func _ready():
 	audio_player.play()
 
 func load_data():
-	var file = FileAccess.open("res://assets/Songs/i_wanna_be_your_slave/beats.json", FileAccess.READ)
+	var file = FileAccess.open("res://assets/Songs/poppy/beats.json", FileAccess.READ)
 	if file:
 		var json_text = file.get_as_text()
 		var json_parser = JSON.new()

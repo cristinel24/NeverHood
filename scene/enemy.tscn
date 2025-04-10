@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://c5px7yvakmssq"]
 
 [ext_resource type="Script" uid="uid://dm174qyturbvv" path="res://scripts/enemy.gd" id="1_h08p8"]
-[ext_resource type="AudioStream" uid="uid://bb582u8rscleb" path="res://assets/Songs/i_wanna_be_your_slave/maneskin.wav" id="2_f87vc"]
+[ext_resource type="AudioStream" uid="uid://brx4bgxexa2ed" path="res://assets/Songs/poppy/Poppy - New Way Out (Official Visualizer).mp3" id="2_8u16h"]
 [ext_resource type="Texture2D" uid="uid://be21n1u8uev1l" path="res://assets/Texture2D/Frog #7293.png" id="3_8u16h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww6yf"]
@@ -191,7 +191,7 @@ animations = [{
 script = ExtResource("1_h08p8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_f87vc")
+stream = ExtResource("2_8u16h")
 
 [node name="Image" type="AnimatedSprite2D" parent="."]
 position = Vector2(4, -64)
