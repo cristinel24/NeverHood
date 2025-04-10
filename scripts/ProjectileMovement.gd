@@ -1,15 +1,16 @@
 extends PathFollow2D
 
+@export var reverse: bool = false
+@export var travel_speed: float = 1.5
+
 func _process(delta: float) -> void:
-	#progress_ratio += travel_speed * delta
-	# Optionally, if you want to remove the projectile when the end is reached:
+	#print_debug("ProjectileMovement: progress_ratio =", progress_ratio)
+	
+	progress_ratio += travel_speed * delta
 	if progress_ratio >= 1.0:
-		# If there's a projectile attached, free it:
-		get_children(true).all(func(kid): kid.free())
-		self.free()
-		
-		
-		#if get_child_count() > 0:
-			#get_child(0).queue_free()
-		## Optionally reset progress for reuse, or queue_free() this node if it’s a one-time instance.
-		#progress_ratio = 0.0
+		_clear_children_and_free()
+			
+func _clear_children_and_free() -> void:
+	for child in get_children():
+		child.queue_free()
+	queue_free()

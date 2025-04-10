@@ -142,18 +142,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_efr1a"]
-atlas = ExtResource("6_xlg7c")
-region = Rect2(640, 384, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3x2e"]
-atlas = ExtResource("6_xlg7c")
-region = Rect2(768, 384, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3n0e"]
-atlas = ExtResource("6_xlg7c")
-region = Rect2(896, 384, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww6yf"]
 atlas = ExtResource("6_xlg7c")
 region = Rect2(0, 0, 128, 128)
@@ -242,22 +230,20 @@ region = Rect2(384, 384, 128, 128)
 atlas = ExtResource("6_xlg7c")
 region = Rect2(512, 384, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_efr1a"]
+atlas = ExtResource("6_xlg7c")
+region = Rect2(640, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3x2e"]
+atlas = ExtResource("6_xlg7c")
+region = Rect2(768, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3n0e"]
+atlas = ExtResource("6_xlg7c")
+region = Rect2(896, 384, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_c6ddg"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efr1a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3x2e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c3n0e")
-}],
-"loop": true,
-"name": &"bazinga",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ww6yf")
@@ -324,6 +310,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lip20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efr1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3x2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3n0e")
 }],
 "loop": true,
 "name": &"default",
@@ -349,7 +344,6 @@ texture = ExtResource("1_p1ry8")
 [node name="Battleground" parent="." instance=ExtResource("2_p1ry8")]
 
 [node name="Player" parent="." instance=ExtResource("1_5kiuu")]
-visible = true
 position = Vector2(-6, 233)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -365,11 +359,11 @@ autoplay = "default"
 frame_progress = 0.477939
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Enemy"]
+visible = false
 position = Vector2(4, -64)
 scale = Vector2(1.875, 1.625)
 sprite_frames = SubResource("SpriteFrames_c6ddg")
 autoplay = "default"
-frame_progress = 0.424946
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-5, 232)

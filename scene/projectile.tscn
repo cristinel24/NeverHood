@@ -8,11 +8,13 @@ radius = 6.99914
 height = 26.0
 
 [node name="projectile" type="CharacterBody2D"]
+input_pickable = true
 motion_mode = 1
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("1_u6xv6")
+metadata/reverse = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.86102e-06, 0)

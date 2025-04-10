@@ -486,7 +486,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fire",
-"speed": 30.0
+"speed": 10.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_slqdk"]
@@ -1097,8 +1097,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hp4bs"]
-radius = 31.0
-height = 62.0
+radius = 21.0
+height = 58.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -1120,7 +1120,7 @@ scale = Vector2(1.35714, 1.35714)
 sprite_frames = SubResource("SpriteFrames_05okc")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.269393
+frame_progress = 0.0687467
 
 [node name="Charge2" type="AnimatedSprite2D" parent="Characters/Base"]
 visible = false
@@ -1129,7 +1129,7 @@ scale = Vector2(0.948979, 0.948979)
 sprite_frames = SubResource("SpriteFrames_05okc")
 animation = &"fire"
 autoplay = "fire"
-frame_progress = 0.204378
+frame_progress = 0.00373175
 
 [node name="Knight" type="AnimatedSprite2D" parent="Characters"]
 visible = false
@@ -1203,7 +1203,7 @@ collision_layer = 2
 collision_mask = 253
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
-position = Vector2(0, -29)
+position = Vector2(1, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hp4bs")
 debug_color = Color(0, 0.607843, 0.639216, 0)

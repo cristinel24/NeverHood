@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bllkjmm50mii"]
+[gd_scene load_steps=12 format=3 uid="uid://bllkjmm50mii"]
 
 [ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="1_0m2nv"]
 
@@ -32,6 +32,36 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve2D" id="Curve2D_5qe2l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -199, 217, 0, 0, 0, 0, -108, -17)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_vi58b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -102, 216, 0, 0, 0, 0, -58, -15)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_iqsrh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3, 220, 0, 0, 0, 0, -3, -11)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_s0qbn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 93, 218, 0, 0, 0, 0, 51, -11)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xvyjk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 192, 216, 0, 0, 0, 0, 104, -12)
+}
+point_count = 2
+
 [node name="Battleground" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -39,17 +69,36 @@ position = Vector2(197, 158)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_0m2nv")
 
-[node name="Tile_1" type="Path2D" parent="."]
+[node name="EnemyAttackPaths" type="Node2D" parent="."]
+
+[node name="Tile_1" type="Path2D" parent="EnemyAttackPaths"]
 curve = SubResource("Curve2D_0m2nv")
 
-[node name="Tile_2" type="Path2D" parent="."]
+[node name="Tile_2" type="Path2D" parent="EnemyAttackPaths"]
 curve = SubResource("Curve2D_3thhl")
 
-[node name="Tile_3" type="Path2D" parent="."]
+[node name="Tile_3" type="Path2D" parent="EnemyAttackPaths"]
 curve = SubResource("Curve2D_n0mh7")
 
-[node name="Tile_4" type="Path2D" parent="."]
+[node name="Tile_4" type="Path2D" parent="EnemyAttackPaths"]
 curve = SubResource("Curve2D_281ah")
 
-[node name="Tile_5" type="Path2D" parent="."]
+[node name="Tile_5" type="Path2D" parent="EnemyAttackPaths"]
 curve = SubResource("Curve2D_c7juf")
+
+[node name="PlayerAttackPaths" type="Node2D" parent="."]
+
+[node name="Tile_1" type="Path2D" parent="PlayerAttackPaths"]
+curve = SubResource("Curve2D_5qe2l")
+
+[node name="Tile_2" type="Path2D" parent="PlayerAttackPaths"]
+curve = SubResource("Curve2D_vi58b")
+
+[node name="Tile_3" type="Path2D" parent="PlayerAttackPaths"]
+curve = SubResource("Curve2D_iqsrh")
+
+[node name="Tile_4" type="Path2D" parent="PlayerAttackPaths"]
+curve = SubResource("Curve2D_s0qbn")
+
+[node name="Tile_5" type="Path2D" parent="PlayerAttackPaths"]
+curve = SubResource("Curve2D_xvyjk")
