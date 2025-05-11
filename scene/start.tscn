@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dytclrm64ukx1"]
+
+[ext_resource type="Texture2D" uid="uid://dt1wvehxil1ko" path="res://assets/Texture2D/Space.png" id="1_gbpcu"]
+[ext_resource type="Script" uid="uid://bdfhgxc0xnsji" path="res://scripts/start.gd" id="1_xmel7"]
+[ext_resource type="PackedScene" uid="uid://b2uac6dvoegbr" path="res://scene/menu.tscn" id="2_bhewb"]
+[ext_resource type="FontFile" uid="uid://l72hrf2f3tbk" path="res://assets/Font/DTM-Mono.otf" id="2_xmel7"]
+[ext_resource type="AudioStream" uid="uid://uo0gu3mob0nb" path="res://assets/AudioClip/SpainOut.wav" id="5_bnuxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhewb"]
+font = ExtResource("2_xmel7")
+font_size = 70
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_xmel7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(952, 544)
+scale = Vector2(7.5, 4.25)
+texture = ExtResource("1_gbpcu")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(2.99614e-06, 0.526791, 1.05888e-06, 1)
+offset_left = 632.0
+offset_top = 520.0
+offset_right = 1388.0
+offset_bottom = 693.0
+mouse_filter = 0
+text = "PRESS A BUTTON...?"
+label_settings = SubResource("LabelSettings_bhewb")
+horizontal_alignment = 1
+
+[node name="BattleSelect" parent="." instance=ExtResource("2_bhewb")]
+visible = false
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_bnuxd")

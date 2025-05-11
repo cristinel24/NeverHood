@@ -1,0 +1,168 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnsa7kachyj5w"]
+
+[ext_resource type="Script" uid="uid://dglqaij6hjygr" path="res://scripts/game_over.gd" id="1_24hux"]
+[ext_resource type="FontFile" uid="uid://cxshv3ctwj1oc" path="res://assets/Font/russian DTM.otf" id="2_1siss"]
+[ext_resource type="Script" uid="uid://l2p6og2mf101" path="res://scripts/escape.gd" id="3_r7rt1"]
+[ext_resource type="AudioStream" uid="uid://bxkcp0rgdrf1t" path="res://assets/AudioClip/Timeslow2.wav" id="4_h0rhv"]
+[ext_resource type="VideoStream" uid="uid://blte8ij2hy5oj" path="res://assets/Videos/wow_.ogv" id="5_dp526"]
+
+[sub_resource type="Animation" id="Animation_0mfy4"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.177778)]
+}
+
+[sub_resource type="Animation" id="Animation_bjmv5"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.177778), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1siss"]
+resource_name = "fade_to_normal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.177778)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbok3"]
+_data = {
+&"RESET": SubResource("Animation_0mfy4"),
+&"fade_to_black": SubResource("Animation_bjmv5"),
+&"fade_to_normal": SubResource("Animation_1siss")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7rt1"]
+font = ExtResource("2_1siss")
+font_size = 70
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0rhv"]
+font = ExtResource("2_1siss")
+font_color = Color(1, 1, 1, 0.313726)
+
+[node name="Transition" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_24hux")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(0, 0, 0, 0.177778)
+show_behind_parent = true
+top_level = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2128.0
+offset_top = -928.0
+offset_right = -2128.0
+offset_bottom = -928.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.39516, 18.9368)
+color = Color(0.273497, 0.0617778, 0.506224, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_tbok3")
+}
+
+[node name="Dead" type="Label" parent="."]
+process_mode = 3
+offset_left = -336.0
+offset_top = -99.0
+offset_right = 336.0
+offset_bottom = 74.0
+text = "GAME OVER
+Maybe try again?"
+label_settings = SubResource("LabelSettings_r7rt1")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Escape" type="Label" parent="."]
+offset_left = -944.0
+offset_top = -512.0
+offset_right = -694.0
+offset_bottom = -489.0
+text = "Press ESC again to go back"
+label_settings = SubResource("LabelSettings_h0rhv")
+script = ExtResource("3_r7rt1")
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Menu" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_h0rhv")
+
+[node name="Wow" type="VideoStreamPlayer" parent="."]
+offset_left = -952.0
+offset_top = -504.0
+offset_right = -312.0
+offset_bottom = -144.0
+scale = Vector2(2.97408, 2.85277)
+stream = ExtResource("5_dp526")

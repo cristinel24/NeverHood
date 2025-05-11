@@ -1,0 +1,196 @@
+[gd_scene load_steps=18 format=3 uid="uid://b2uac6dvoegbr"]
+
+[ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/Transition.tscn" id="1_dyuxe"]
+[ext_resource type="Texture2D" uid="uid://bkcby8ii43ebp" path="res://assets/Sprite/TheImage.png" id="1_e5g8k"]
+[ext_resource type="Texture2D" uid="uid://dt1wvehxil1ko" path="res://assets/Texture2D/Space.png" id="2_8hxod"]
+[ext_resource type="Texture2D" uid="uid://4lgxfal7aqu" path="res://assets/Texture2D/FrogFocusPortrait.png" id="3_1qlln"]
+[ext_resource type="Script" uid="uid://bmq4f8yfi65m4" path="res://scripts/enemies_select.gd" id="3_ho73k"]
+[ext_resource type="Script" uid="uid://dld53u1l1mwcl" path="res://scripts/scene_button.gd" id="4_6fejx"]
+[ext_resource type="FontFile" uid="uid://l72hrf2f3tbk" path="res://assets/Font/DTM-Mono.otf" id="4_nuiae"]
+[ext_resource type="Texture2D" uid="uid://qdvdtvlmpy0o" path="res://assets/Texture2D/ClubberPortraitAngry.png" id="4_wd6lm"]
+[ext_resource type="PackedScene" uid="uid://8x2stmx0ghml" path="res://scene/levels/frog.tscn" id="6_ho73k"]
+[ext_resource type="Texture2D" uid="uid://d20idqmiq6fp7" path="res://assets/Texture2D/WhiteMagePortraitHappy.png" id="6_pb5j1"]
+[ext_resource type="Texture2D" uid="uid://uo5ekssoo5jf" path="res://assets/Texture2D/ZobTheZombiePortraitLookAround.png" id="7_6fejx"]
+[ext_resource type="Texture2D" uid="uid://cei03gk0m4yhh" path="res://assets/Texture2D/RastaBeast_Portrait.png" id="9_ho73k"]
+[ext_resource type="Shader" uid="uid://d0inmm6ax10i5" path="res://shaders/menu.gdshader" id="9_nuiae"]
+[ext_resource type="AudioStream" uid="uid://dqsbwh225xfu1" path="res://assets/AudioClip/Energy - electric_fuse-08.wav" id="13_ho73k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pb5j1"]
+font = ExtResource("4_nuiae")
+font_size = 14
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dyuxe"]
+shader = ExtResource("9_nuiae")
+shader_parameter/progress = 0.0
+shader_parameter/width = 0.002
+shader_parameter/timed = true
+shader_parameter/speed = 1.0
+shader_parameter/angle = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5j1"]
+resource_local_to_scene = true
+shader = ExtResource("9_nuiae")
+shader_parameter/progress = 0.0
+shader_parameter/width = 0.015
+shader_parameter/timed = true
+shader_parameter/speed = 1.0
+shader_parameter/angle = 1.0
+
+[node name="BattleSelect" type="Node2D"]
+
+[node name="Transition" parent="." instance=ExtResource("1_dyuxe")]
+follow_viewport_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(953.209, 541.5)
+scale = Vector2(2.55438, 2.01661)
+texture = ExtResource("1_e5g8k")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(952, 544)
+scale = Vector2(7.5, 4.25)
+texture = ExtResource("2_8hxod")
+
+[node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("3_ho73k")
+
+[node name="Frog" type="Sprite2D" parent="Enemies"]
+position = Vector2(288, 544)
+scale = Vector2(3.45, 3.37959)
+texture = ExtResource("3_1qlln")
+
+[node name="Button" type="Button" parent="Enemies/Frog"]
+modulate = Color(0.0705882, 0.560784, 0.0705882, 1)
+self_modulate = Color(0, 0.52549, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("6_ho73k")
+
+[node name="Label" type="Label" parent="Enemies/Frog"]
+modulate = Color(2.99614e-06, 0.526791, 1.05888e-06, 1)
+offset_left = -25.5072
+offset_top = 30.773
+offset_right = 28.4928
+offset_bottom = 48.7729
+mouse_filter = 0
+text = "FROG"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+
+[node name="Zig" type="Sprite2D" parent="Enemies"]
+position = Vector2(608, 544)
+scale = Vector2(3.45, 3.45)
+texture = ExtResource("4_wd6lm")
+
+[node name="Button" type="Button" parent="Enemies/Zig"]
+modulate = Color(1, 0.913725, 0, 1)
+self_modulate = Color(1, 0.913725, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Enemies/Zig"]
+modulate = Color(1, 0.913725, 0, 1)
+offset_left = -27.8261
+offset_top = 30.1449
+offset_right = 31.1739
+offset_bottom = 48.1449
+text = "ZIG"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+
+[node name="Orange" type="Sprite2D" parent="Enemies"]
+position = Vector2(928, 544)
+scale = Vector2(3.45, 3.45)
+texture = ExtResource("6_pb5j1")
+
+[node name="Button" type="Button" parent="Enemies/Orange"]
+modulate = Color(1, 0.466667, 0.0705882, 1)
+self_modulate = Color(1, 0.427451, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Enemies/Orange"]
+modulate = Color(1, 0.427451, 0, 1)
+offset_left = -27.8261
+offset_top = 30.1449
+offset_right = 31.1739
+offset_bottom = 48.1449
+text = "DOCTOR
+ORANGE"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+
+[node name="Rasta" type="Sprite2D" parent="Enemies"]
+position = Vector2(1248, 544)
+scale = Vector2(3.40909, 3.40909)
+texture = ExtResource("9_ho73k")
+
+[node name="Button" type="Button" parent="Enemies/Rasta"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+
+[node name="Label" type="Label" parent="Enemies/Rasta"]
+modulate = Color(1, 0, 0, 1)
+offset_left = -28.16
+offset_top = 30.5067
+offset_right = 30.84
+offset_bottom = 69.5067
+text = "RASTA"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+
+[node name="ZobTheZombie" type="Sprite2D" parent="Enemies"]
+position = Vector2(1568, 544)
+scale = Vector2(3.52273, 3.52273)
+texture = ExtResource("7_6fejx")
+
+[node name="Button" type="Button" parent="Enemies/ZobTheZombie"]
+modulate = Color(0.223529, 0.486275, 0.0784314, 1)
+self_modulate = Color(0.164706, 0.447059, 0.00784314, 1)
+material = SubResource("ShaderMaterial_dyuxe")
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+flat = true
+
+[node name="Label" type="Label" parent="Enemies/ZobTheZombie"]
+modulate = Color(0.155592, 0.258503, 0, 1)
+self_modulate = Color(0, 0.435294, 0, 1)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_pb5j1")
+offset_left = -27.2516
+offset_top = 29.5226
+offset_right = 31.7484
+offset_bottom = 47.5226
+text = "ZOB"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+
+[node name="select" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("13_ho73k")

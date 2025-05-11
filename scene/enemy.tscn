@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5px7yvakmssq"]
+[gd_scene load_steps=33 format=3 uid="uid://c5px7yvakmssq"]
 
 [ext_resource type="Script" uid="uid://dm174qyturbvv" path="res://scripts/enemy.gd" id="1_h08p8"]
-[ext_resource type="AudioStream" uid="uid://brx4bgxexa2ed" path="res://assets/Songs/poppy/Poppy - New Way Out (Official Visualizer).mp3" id="2_8u16h"]
+[ext_resource type="AudioStream" uid="uid://bb582u8rscleb" path="res://assets/Songs/i_wanna_be_your_slave/maneskin.wav" id="2_8u16h"]
 [ext_resource type="Texture2D" uid="uid://be21n1u8uev1l" path="res://assets/Texture2D/Frog #7293.png" id="3_8u16h"]
+[ext_resource type="AudioStream" uid="uid://dp4401rsd3i" path="res://assets/AudioClip/WhiteMageVoice.wav" id="4_b7koy"]
+[ext_resource type="AudioStream" uid="uid://clh0atexvo7s0" path="res://assets/AudioClip/26198__tobyk__medieval-fanfare.wav" id="5_yvcfn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ww6yf"]
 atlas = ExtResource("3_8u16h")
@@ -187,7 +189,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8u16h"]
+radius = 6.0
+height = 256.0
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_h08p8")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -198,3 +204,25 @@ position = Vector2(4, -64)
 scale = Vector2(1.875, 1.625)
 sprite_frames = SubResource("SpriteFrames_b7koy")
 autoplay = "default"
+
+[node name="Health" type="ProgressBar" parent="."]
+offset_left = 67.0
+offset_top = -145.0
+offset_right = 77.0
+offset_bottom = -11.0
+rotation = 1.57079
+step = 0.1
+fill_mode = 3
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -44)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_8u16h")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b7koy")
+volume_db = 10.0
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yvcfn")

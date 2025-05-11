@@ -8,10 +8,10 @@ const MAX_TILE_INDEX = NUM_TILES - 1
 var current_tile: int = MIDDLE_TILE_INDEX
 var charged_projectile: Node = null
 
-const JUMP_DURATION = 0.2
-const JUMP_HEIGHT = 35.0
+const JUMP_DURATION = 0.25
+const JUMP_HEIGHT = 50.0
 const MOVE_DURATION = 0.1
-const REGEN_TIME = 5.0
+const REGEN_TIME = 4.0
 
 var is_jumping = false
 var jump_timer = 0.0
@@ -34,6 +34,10 @@ var is_invincible: bool = false
 @onready var jump_smoke: AnimatedSprite2D = $Misc/JumpSmoke
 @onready var hit_sound: AudioStreamPlayer2D = $Sounds/Hit
 @onready var charge_sound: AudioStreamPlayer2D = $Sounds/Charge
+@onready var death: AudioStreamPlayer2D = $Sounds/Death
+@onready var attack: AudioStreamPlayer2D = $Sounds/Attack
+
+
 
 var ProjectileScene = preload("res://scene/projectile.tscn")
 @onready var attack_tiles := [
@@ -56,7 +60,6 @@ var health_flicker_active: bool = false
 var skip_tile: bool = false
 
 func _ready() -> void:
-	print(attack_tiles)
 	original_y = position.y
 	position.x = (current_tile - MIDDLE_TILE_INDEX) * TILE_WIDTH
 	jump_smoke.play("no_smoke")
@@ -144,7 +147,7 @@ func _physics_process(delta: float) -> void:
 			
 	# Charge logic
 	if Input.is_action_pressed("charge"):
-		if can_attack:
+		if can_attack and charge_cooldown <= 0:
 			can_attack = false
 			charged = 0
 			spawn_projectile_on_tile(current_tile, charge_color)
@@ -153,7 +156,7 @@ func _physics_process(delta: float) -> void:
 		elif charge_cooldown <= 0:
 			var overlapping = $Collision.get_overlapping_bodies()
 			for body in overlapping:
-				if body.is_in_group("projectile") and body is CanvasItem:
+				if body.is_in_group("projectile") and body is CanvasItem and body.dodge == true:
 					var new_color: Color = body.modulate
 					if charged == 0:
 						charged = 1
@@ -166,8 +169,11 @@ func _physics_process(delta: float) -> void:
 					update_charge_visuals()
 					if charged == 2:
 						can_attack = true
-					charge_cooldown = CHARGE_COOLDOWN_TIME
+						charge_cooldown = 0.1
+					else:
+						charge_cooldown = CHARGE_COOLDOWN_TIME
 					charge_sound.play()
+					skip_tile = true
 					make_temp_invincible(0.15)
 					break  
 
@@ -240,7 +246,28 @@ func apply_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
-	print("Player died")
+	if get_tree().paused:
+		return
+
+	print("rip")
+	death.play()
+	set_process(false)
+	set_physics_process(false)
+	
+	get_tree().paused = true
+
+	var go = get_tree().get_current_scene().get_node("Transition")
+	await go.game_over()
+	
+	while not Input.is_key_pressed(Key.KEY_SPACE):
+		await get_tree().process_frame
+
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+func _on_game_over_fade_finished(anim_name: String, ui: Node) -> void:
+	if anim_name == "fade_to_black":
+		ui.get_node("Label").visible = true
 	
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("projectile"):
@@ -299,17 +326,18 @@ func make_temp_invincible(time: float) -> void:
 	
 	
 func spawn_projectile_on_tile(tile_index, color):
+	attack.play()
 	var projectile = ProjectileScene.instantiate()
 	projectile.modulate = color
 	projectile.add_to_group("player_projectile")
+	projectile.force_good = true
 
 	var pathfollow = PathFollow2D.new()
 	pathfollow.loop = false
 	pathfollow.cubic_interp = false    
 	pathfollow.rotates = false
 	pathfollow.rotation_degrees = 180
-	pathfollow.set_script(preload("res://scripts/ProjectileMovement.gd"))
-	pathfollow.travel_speed = 3
+	pathfollow.set_script(preload("res://scripts/fast_attack.gd"))
 
 	pathfollow.add_child(projectile)
 	

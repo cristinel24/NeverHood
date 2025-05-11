@@ -1,5 +1,6 @@
-[gd_scene load_steps=54 format=3 uid="uid://8x2stmx0ghml"]
+[gd_scene load_steps=56 format=3 uid="uid://8x2stmx0ghml"]
 
+[ext_resource type="Script" uid="uid://cikjgovmlb63r" path="res://scene/levels/back_to_menu.gd" id="1_1eaoj"]
 [ext_resource type="PackedScene" uid="uid://ry1x18d8fpi4" path="res://scene/player.tscn" id="1_5kiuu"]
 [ext_resource type="Texture2D" uid="uid://b67yq523lec7" path="res://assets/Texture2D/ClubBackground.png" id="1_p1ry8"]
 [ext_resource type="Texture2D" uid="uid://b2nuxih1oy40e" path="res://assets/Sprite/NBGCutscenes_Village.png" id="1_qpk70"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmtg6ne3a77iq" path="res://assets/Texture2D/Clubber.png" id="3_33cqm"]
 [ext_resource type="PackedScene" uid="uid://c5px7yvakmssq" path="res://scene/enemy.tscn" id="3_xwcet"]
 [ext_resource type="Texture2D" uid="uid://be21n1u8uev1l" path="res://assets/Texture2D/Frog #7293.png" id="6_xlg7c"]
+[ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/GameOver.tscn" id="8_ll5lq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_33cqm"]
 atlas = ExtResource("3_33cqm")
@@ -329,6 +331,11 @@ animations = [{
 
 [node name="Game" type="Node2D"]
 scale = Vector2(2, 2)
+script = ExtResource("1_1eaoj")
+
+[node name="GameOver" parent="." instance=ExtResource("8_ll5lq")]
+layer = 100
+follow_viewport_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-316, -32)
@@ -349,6 +356,7 @@ position = Vector2(-6, 233)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Enemy" parent="." instance=ExtResource("3_xwcet")]
+position = Vector2(0, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 visible = false
@@ -370,3 +378,10 @@ position = Vector2(-5, 232)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_5kiuu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -280.0
+offset_top = -156.0
+offset_right = -76.0
+offset_bottom = -133.0
+text = "Press ESC again to go back"

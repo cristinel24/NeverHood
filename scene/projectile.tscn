@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://da0mka2ciqivx"]
+[gd_scene load_steps=7 format=3 uid="uid://da0mka2ciqivx"]
 
 [ext_resource type="Script" uid="uid://0h4vew53v18x" path="res://scripts/projectile.gd" id="1_u6xv6"]
 [ext_resource type="Texture2D" uid="uid://cxyf8js0banhx" path="res://assets/Sprite/ProjectileMarkers_Moon.png" id="2_u6xv6"]
+[ext_resource type="Texture2D" uid="uid://copfnqwfl8utm" path="res://assets/Texture2D/HalfMoonSkull.png" id="3_c0tm2"]
+[ext_resource type="Texture2D" uid="uid://bbbdd47e8o4g0" path="res://assets/Texture2D/HalfMoon.png" id="3_ujo14"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6xv6"]
 radius = 6.99914
-height = 26.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujo14"]
+size = Vector2(14, 31)
 
 [node name="projectile" type="CharacterBody2D"]
 input_pickable = true
@@ -16,14 +21,30 @@ floor_block_on_wall = false
 script = ExtResource("1_u6xv6")
 metadata/reverse = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Old" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-2.86102e-06, 0)
 rotation = -0.383972
 scale = Vector2(1, 1.052)
 skew = -0.853466
 texture = ExtResource("2_u6xv6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="GoodCol" type="CollisionShape2D" parent="."]
 physics_interpolation_mode = 2
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_u6xv6")
+
+[node name="Cool" type="Sprite2D" parent="GoodCol"]
+rotation = 1.5708
+scale = Vector2(0.324589, 0.132477)
+texture = ExtResource("3_ujo14")
+
+[node name="BadCol" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_ujo14")
+
+[node name="Bad" type="Sprite2D" parent="BadCol"]
+auto_translate_mode = 2
+position = Vector2(-5.96046e-08, 9.5)
+scale = Vector2(0.309367, 0.335614)
+texture = ExtResource("3_c0tm2")

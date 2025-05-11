@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="everhood"
-run/main_scene="uid://8x2stmx0ghml"
+run/main_scene="uid://dytclrm64ukx1"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

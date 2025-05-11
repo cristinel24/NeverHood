@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 const NUM_TILES = 5
 
@@ -11,6 +11,16 @@ var current_melody_index = 0
 
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var hit: AudioStreamPlayer2D = $Hit
+@onready var dead: AudioStreamPlayer2D = $Dead
+@onready var enemy: CharacterBody2D = $"."
+@onready var transition: CanvasLayer = $"../Transition"
+
+@onready var health: ProgressBar = $Health
+const MAX_HEALTH := 100
+@export var MAX_HITS : int = 20
+var current_health := MAX_HEALTH
+
 
 @onready var path_follow_nodes := [
 	get_node("../Battleground/EnemyAttackPaths/Tile_1"),
@@ -20,13 +30,69 @@ var current_melody_index = 0
 	get_node("../Battleground/EnemyAttackPaths/Tile_5")
 ]
 
+var health_hide_timer: Timer
+
+
 func _ready():
 	randomize()
 	load_data()
 	audio_player.play()
+	
+	current_health = MAX_HEALTH
+	health.min_value = 0
+	health.max_value = MAX_HEALTH
+	health.value = current_health
+	health.step = 100 / MAX_HITS
+	
+	health_hide_timer = Timer.new()
+	health_hide_timer.wait_time = 10.0
+	health_hide_timer.one_shot = true
+	health_hide_timer.autostart = false
+	add_child(health_hide_timer)
+	health_hide_timer.connect("timeout", Callable(self, "_on_health_hide_timeout"))
+
+	# Start hidden
+	health.visible = false
+	
+	$CollisionShape2D.connect("body_entered", Callable(self, "_on_body_entered"))
+
+
+func take_damage(amount: int) -> void:
+	hit.play()
+	current_health = clamp(current_health - amount * health.step, 0, MAX_HEALTH)
+	health.value = current_health
+	print("COAIE", current_health)
+	_play_hit_effects()
+	
+	health.visible = true
+	health_hide_timer.start()
+	
+	if current_health == 0:
+		die()
+		
+func _on_health_hide_timeout() -> void:
+	health.visible = false
+
+func _play_hit_effects() -> void:
+	animation.modulate = Color(1,0.5,0.5)
+	await get_tree().create_timer(0.1).timeout
+	animation.modulate = Color(1,1,1)
+
+func die() -> void:
+	dead.play()
+	
+	enemy.visible = false
+	audio_player.stop()
+	await transition.win()
+	await dead.finished
+	queue_free()
+
+func _on_death_anim_done() -> void:
+	queue_free()
+
 
 func load_data():
-	var file = FileAccess.open("res://assets/Songs/poppy/beats.json", FileAccess.READ)
+	var file = FileAccess.open("res://assets/Songs/i_wanna_be_your_slave/beats.json", FileAccess.READ)
 	if file:
 		var json_text = file.get_as_text()
 		var json_parser = JSON.new()
@@ -130,7 +196,6 @@ func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat")
 	if last_spawn_info.has(tile_index):
 		var info = last_spawn_info[tile_index]
 		if abs(current_time - info["time"]) < spawn_threshold:
-			if (info["type"] == "beat" and projectile_type == "melody") or (info["type"] == "melody" and projectile_type == "beat"):
 				return  
 	
 	last_spawn_info[tile_index] = { "time": current_time, "type": projectile_type }
