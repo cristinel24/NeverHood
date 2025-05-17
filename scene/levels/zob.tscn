@@ -1,0 +1,238 @@
+[gd_scene load_steps=31 format=3 uid="uid://c6jpwbc0wcv1r"]
+
+[ext_resource type="Script" uid="uid://cikjgovmlb63r" path="res://scripts/back_to_menu.gd" id="1_nk5gy"]
+[ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/Transition.tscn" id="1_x2pqc"]
+[ext_resource type="Texture2D" uid="uid://dgf4eppija3l6" path="res://assets/SacredSpace.png" id="3_nk5gy"]
+[ext_resource type="PackedScene" uid="uid://c5px7yvakmssq" path="res://scene/enemy.tscn" id="4_2oxuf"]
+[ext_resource type="Texture2D" uid="uid://c31a0l61qdju1" path="res://assets/Sprite/Treasury_Text.png" id="4_mvimg"]
+[ext_resource type="Shader" uid="uid://c706wqg83wl0d" path="res://shaders/lighting_strike.gdshader" id="5_mvimg"]
+[ext_resource type="Texture2D" uid="uid://rburrh8qxtsc" path="res://assets/Texture2D/ZobTheZombie #14125.png" id="6_2oxuf"]
+[ext_resource type="PackedScene" uid="uid://bllkjmm50mii" path="res://scene/battleground.tscn" id="6_wefgd"]
+[ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="7_nrfrn"]
+[ext_resource type="PackedScene" uid="uid://ry1x18d8fpi4" path="res://scene/player.tscn" id="8_me5m2"]
+[ext_resource type="Shader" uid="uid://04yp3a85ybjb" path="res://shaders/glitch.gdshader" id="9_2oxuf"]
+[ext_resource type="AudioStream" uid="uid://bic70wtjt1vuc" path="res://assets/Songs/loathe/Loathe - Gifted Every Strength (Audio).mp3" id="9_as8wi"]
+[ext_resource type="Script" uid="uid://p23cbmjt00cr" path="res://scripts/zob.gd" id="10_wefgd"]
+[ext_resource type="AudioStream" uid="uid://b322c3osh7gow" path="res://assets/AudioClip/DarkVoice.wav" id="11_me5m2"]
+[ext_resource type="Shader" uid="uid://phpu2mesxfsl" path="res://shaders/kaleidoscop.gdshader" id="12_nrfrn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oxuf"]
+shader = ExtResource("5_mvimg")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_as8wi"]
+shader = ExtResource("9_2oxuf")
+shader_parameter/shake_power = 0.02
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+shader_parameter/audio_time = 0.0
+shader_parameter/shake_start_time = 0.0
+shader_parameter/shake_duration = 0.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as8wi"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wefgd"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrfrn"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me5m2"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w175k"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h0rb"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqgon"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlh75"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70lgv"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5uiy"]
+atlas = ExtResource("6_2oxuf")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h0rb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as8wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wefgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrfrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me5m2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w175k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h0rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqgon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlh75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70lgv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5uiy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqgon"]
+radius = 4.09575
+height = 256.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_me5m2"]
+shader = ExtResource("12_nrfrn")
+shader_parameter/segments = 6.0
+shader_parameter/segmentReflect = true
+shader_parameter/polarOffset = Vector2(0.5, 0.5)
+shader_parameter/polarAngle = 0.0
+shader_parameter/sourceOffset = Vector2(0.5, 0.5)
+shader_parameter/sourceScale = 2.0
+shader_parameter/sourceAngle = 0.0
+
+[node name="Zob" type="Node2D"]
+script = ExtResource("1_nk5gy")
+long_pause = true
+
+[node name="Transition" parent="." instance=ExtResource("1_x2pqc")]
+follow_viewport_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(2.28882e-05, 3.8147e-05)
+scale = Vector2(4.23529, 3.95062)
+texture = ExtResource("3_nk5gy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+modulate = Color(0.188235, 0.188235, 0.188235, 0.501961)
+position = Vector2(-1.23978e-05, -1.09673e-05)
+scale = Vector2(1.03561, 1.03235)
+texture = ExtResource("4_mvimg")
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -164.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LightningStrikes" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_2oxuf")
+offset_left = -136.0
+offset_top = -81.0
+offset_right = 136.0
+offset_bottom = 81.0
+
+[node name="Glitch" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_as8wi")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("4_2oxuf")]
+position = Vector2(8, 72)
+scale = Vector2(1.79219, 1.95324)
+file_path = "D:/FII/everhood/assets/Songs/loathe/beats.json"
+block_tile_prob = 0.3
+MAX_HITS = 50
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(3.8147e-06, -122.873)
+scale = Vector2(1.4121, 1.27508)
+sprite_frames = SubResource("SpriteFrames_3h0rb")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Health" type="ProgressBar" parent="Enemy"]
+offset_left = 66.9572
+offset_top = -167.926
+offset_right = 70.9572
+offset_bottom = -33.9261
+rotation = 1.57079
+step = 0.1
+fill_mode = 3
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(4.46381, -61.4364)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_fqgon")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("9_as8wi")
+script = ExtResource("10_wefgd")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("11_me5m2")
+volume_db = 10.0
+
+[node name="Battleground" parent="." instance=ExtResource("6_wefgd")]
+material = SubResource("ShaderMaterial_me5m2")
+use_parent_material = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Battleground"]
+visible = false
+use_parent_material = true
+position = Vector2(8, 136)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("7_nrfrn")
+
+[node name="Player" parent="." instance=ExtResource("8_me5m2")]
+use_parent_material = false
+position = Vector2(8, 304)
+scale = Vector2(1.3, 1.3)
+platform_on_leave = 2

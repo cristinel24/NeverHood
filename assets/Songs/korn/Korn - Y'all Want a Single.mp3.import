@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2pl114s6wuom"
+path="res://.godot/imported/Korn - Y'all Want a Single.mp3-014fdd15e34123894a4242fc2e63fc94.mp3str"
+
+[deps]
+
+source_file="res://assets/Songs/korn/Korn - Y'all Want a Single.mp3"
+dest_files=["res://.godot/imported/Korn - Y'all Want a Single.mp3-014fdd15e34123894a4242fc2e63fc94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

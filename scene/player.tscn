@@ -1103,13 +1103,16 @@ radius = 24.0
 height = 64.0
 
 [node name="Player" type="CharacterBody2D"]
+use_parent_material = true
 collision_layer = 2
 collision_mask = 253
 script = ExtResource("1_hjaqi")
 
 [node name="Characters" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="Base" type="AnimatedSprite2D" parent="Characters"]
+use_parent_material = true
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_oh5ij")
 animation = &"idle_2"
@@ -1184,8 +1187,10 @@ stream = ExtResource("10_dk1vr")
 volume_db = 8.0
 
 [node name="Misc" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="Dash" type="AnimatedSprite2D" parent="Misc"]
+use_parent_material = true
 position = Vector2(33, -14)
 sprite_frames = SubResource("SpriteFrames_n3008")
 animation = &"dash"
@@ -1194,6 +1199,7 @@ frame_progress = 1.0
 
 [node name="JumpSmoke" type="AnimatedSprite2D" parent="Misc"]
 modulate = Color(1, 1, 1, 0.443137)
+use_parent_material = true
 position = Vector2(-1, -6)
 rotation = 3.14159
 scale = Vector2(2.46875, 1.71875)
@@ -1202,6 +1208,7 @@ animation = &"no_smoke"
 
 [node name="Fire" type="AnimatedSprite2D" parent="Misc"]
 visible = false
+use_parent_material = true
 position = Vector2(33, -29)
 scale = Vector2(3.67857, 2.87857)
 sprite_frames = SubResource("SpriteFrames_cmg3n")
@@ -1217,5 +1224,6 @@ shape = SubResource("CapsuleShape2D_hp4bs")
 debug_color = Color(0, 0.607843, 0.639216, 0)
 
 [connection signal="animation_finished" from="Characters/Base" to="." method="_on_animation_finished"]
+[connection signal="area_exited" from="Collision" to="." method="_on_collision_area_exited"]
 [connection signal="body_entered" from="Collision" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Collision" to="." method="_on_body_exited"]

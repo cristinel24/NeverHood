@@ -1,38 +1,32 @@
 shader_type canvas_item;
 
-//programatically change this if you want to, remove the progress based on time.
-uniform float progress : hint_range(-1.0,2.0) = 0.0;
-//the width of the burn area, higher values makes the burn wider, 1 makes the burn cover the whole sprite
-uniform float width : hint_range(0.0,2.0) = 0.002;
-
-//Noise to sample from for the burning
-uniform sampler2D noise;
-//colors to use for the burn color, the progress of the burn goes left to right
-uniform sampler2D colorCurve;
-
-//make this timed or not, if not timed, you must programatically set the burn (such as with a lerp)
-uniform bool timed = true;
-//speed of the burn
-uniform float speed : hint_range(0.0,1.0) = 1.0;
-//hacky way to make this angled, far from perfect. 1.0 is right to left. 0 is bottom to top. outside
-//that range is wierd.
-uniform float angle = 1.0;
-
-float inverse_lerp(float a, float b, float v){
-	return (v-a)/(b-a);
-}
+uniform sampler2D vertical_gradient; // used to set alpha values. So you can use this to make the effect dis-/re-appear at points
+uniform sampler2D color_gradient; // sets the effect color, supports 2d gradients
+uniform float size_effect: hint_range(-5.0, 5.0, 0.05) = 0.1; // size of the effect
+uniform float speed = 1; // effect speed; Will reverse effect is set to negative
+uniform float highlight_strength: hint_range(-4.0, 4.0, 0.05) = 0.5; // how strong the color overides the base color
+uniform bool color_mode_toggle = false; // changes how the color gradient is applied. Default is on the entire texture, if set to true it is only applied to the effect
+uniform bool is_horizontal = false; //changes direction from vertical to horizontal 
 
 void fragment() {
-	float burn_progress;
-	if(timed){
-		burn_progress = (fract(TIME * speed / 2.0) * 2.0);
-	}else{
-		burn_progress = progress;
-	}
-	float noise_value = texture(noise,UV).x;
-	float mask = inverse_lerp(1.0 - burn_progress,(1.0 + width) - burn_progress, (UV.x * angle + UV.y * (1.0-angle)));
-	float value = clamp(mask + noise_value,0.0,1.0);
-	vec4 curve_value = texture(colorCurve,vec2(value));
-	COLOR = mix(COLOR, curve_value, value);
-	COLOR.a = min(texture(TEXTURE,UV).a,COLOR.a);
+	// set up base parameters
+	vec4 old_color = COLOR;
+	float time = TIME * speed;
+	float current_time = fract(-time);
+	// sets time to fit better with the effect. (Barely detectable change) 
+	current_time = mix(0. - size_effect, 1. + size_effect, current_time);
+	float effect_lower_bound = current_time - size_effect;
+	float effect_upper_bound = current_time + size_effect;
+	float position_value = (is_horizontal) ? UV.x : UV.y;
+	// smoothes out the lower/upper bounds with the UV values to calculate how far from the middle point(the effect) the pixel is away
+	float effect_distance = smoothstep(effect_lower_bound, current_time, position_value) - smoothstep(current_time, effect_upper_bound, position_value);
+	// gets the position of the pixel within the effect for the inner_gradient color mode
+	float inner_effect_position = smoothstep(effect_lower_bound, effect_upper_bound, position_value);
+	vec2 color_position = (color_mode_toggle) ? vec2(UV.x, inner_effect_position) : vec2(current_time);
+	// gets the new color from the gradient
+	vec4 new_color = vec4(texture(color_gradient, color_position));
+	// this step calculates the vertical gradient and alpha_values
+	new_color = mix(old_color, new_color, vec4(texture(vertical_gradient, vec2(current_time))));
+	// apply the color to the texture
+	COLOR.rgb = mix(old_color.rgb, new_color.rgb, vec3(effect_distance * highlight_strength));
 }

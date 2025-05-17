@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bbbdd47e8o4g0" path="res://assets/Texture2D/HalfMoon.png" id="3_ujo14"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6xv6"]
-radius = 6.99914
-height = 14.0
+radius = 8.99999
+height = 18.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujo14"]
-size = Vector2(14, 31)
+size = Vector2(16, 48)
 
 [node name="projectile" type="CharacterBody2D"]
 input_pickable = true
@@ -31,20 +31,24 @@ texture = ExtResource("2_u6xv6")
 
 [node name="GoodCol" type="CollisionShape2D" parent="."]
 physics_interpolation_mode = 2
+use_parent_material = true
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_u6xv6")
 
 [node name="Cool" type="Sprite2D" parent="GoodCol"]
+use_parent_material = true
 rotation = 1.5708
 scale = Vector2(0.324589, 0.132477)
 texture = ExtResource("3_ujo14")
 
 [node name="BadCol" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10.5)
+use_parent_material = true
+position = Vector2(0, -19)
 shape = SubResource("RectangleShape2D_ujo14")
 
 [node name="Bad" type="Sprite2D" parent="BadCol"]
 auto_translate_mode = 2
-position = Vector2(-5.96046e-08, 9.5)
+use_parent_material = true
+position = Vector2(0, 16)
 scale = Vector2(0.309367, 0.335614)
 texture = ExtResource("3_c0tm2")

@@ -1,104 +1,118 @@
-[gd_scene load_steps=12 format=3 uid="uid://bllkjmm50mii"]
-
-[ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="1_0m2nv"]
+[gd_scene load_steps=11 format=3 uid="uid://bllkjmm50mii"]
 
 [sub_resource type="Curve2D" id="Curve2D_0m2nv"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -112, -24, 0, 0, 0, 0, -208, 232)
+"points": PackedVector2Array(0, 0, 0, 0, -80, -72, 0, 0, 0, 0, -208, 240)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_3thhl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -64, -8, 0, 0, 0, 0, -104, 232)
+"points": PackedVector2Array(0, 0, 0, 0, -16, -72, 0, 0, 0, 0, -80, 240)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_n0mh7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, 0, 0, 0, 0, 0, -8, 232)
+"points": PackedVector2Array(0, 0, 0, 0, 40, -72, 0, 0, 0, 0, 32, 248)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_281ah"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 48, -8, 0, 0, 0, 0, 96, 232)
+"points": PackedVector2Array(0, 0, 0, 0, 96, -72, 0, 0, 0, 0, 160, 248)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_c7juf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 104, -16, 0, 0, 0, 0, 200, 232)
+"points": PackedVector2Array(0, 0, 0, 0, 160, -72, 0, 0, 0, 0, 288, 240)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_5qe2l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -199, 217, 0, 0, 0, 0, -88, -96)
+"points": PackedVector2Array(0, 0, 0, 0, -240, 296, 0, 0, 0, 0, -96, -56)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_vi58b"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -102, 216, 0, 0, 0, 0, -40, -96)
+"points": PackedVector2Array(0, 0, 0, 0, -112, 296, 0, 0, 0, 0, -40, -56)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_iqsrh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -3, 220, 0, 0, 0, 0, 0, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 296, 0, 0, 0, 0, 8, -56)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_s0qbn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 93, 218, 0, 0, 0, 0, 32, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 128, 296, 0, 0, 0, 0, 56, -56)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_xvyjk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 192, 216, 0, 0, 0, 0, 72, -96)
+"points": PackedVector2Array(0, 0, 0, 0, 256, 296, 0, 0, 0, 0, 112, -56)
 }
 point_count = 2
 
 [node name="Battleground" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(197, 158)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("1_0m2nv")
+use_parent_material = true
 
 [node name="EnemyAttackPaths" type="Node2D" parent="."]
+use_parent_material = true
+metadata/_edit_lock_ = true
 
 [node name="Tile_1" type="Path2D" parent="EnemyAttackPaths"]
+use_parent_material = true
+position = Vector2(-32, 56)
 curve = SubResource("Curve2D_0m2nv")
 
 [node name="Tile_2" type="Path2D" parent="EnemyAttackPaths"]
+use_parent_material = true
+position = Vector2(-32, 56)
 curve = SubResource("Curve2D_3thhl")
 
 [node name="Tile_3" type="Path2D" parent="EnemyAttackPaths"]
+use_parent_material = true
+position = Vector2(-32, 56)
 curve = SubResource("Curve2D_n0mh7")
 
 [node name="Tile_4" type="Path2D" parent="EnemyAttackPaths"]
+use_parent_material = true
+position = Vector2(-32, 56)
 curve = SubResource("Curve2D_281ah")
 
 [node name="Tile_5" type="Path2D" parent="EnemyAttackPaths"]
+use_parent_material = true
+position = Vector2(-32, 56)
 curve = SubResource("Curve2D_c7juf")
 
 [node name="PlayerAttackPaths" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="Tile_1" type="Path2D" parent="PlayerAttackPaths"]
+use_parent_material = true
 curve = SubResource("Curve2D_5qe2l")
 
 [node name="Tile_2" type="Path2D" parent="PlayerAttackPaths"]
+use_parent_material = true
 curve = SubResource("Curve2D_vi58b")
 
 [node name="Tile_3" type="Path2D" parent="PlayerAttackPaths"]
+use_parent_material = true
 curve = SubResource("Curve2D_iqsrh")
 
 [node name="Tile_4" type="Path2D" parent="PlayerAttackPaths"]
+use_parent_material = true
 curve = SubResource("Curve2D_s0qbn")
 
 [node name="Tile_5" type="Path2D" parent="PlayerAttackPaths"]
+use_parent_material = true
 curve = SubResource("Curve2D_xvyjk")
+
+[node name="Camera2D" type="Camera2D" parent="."]

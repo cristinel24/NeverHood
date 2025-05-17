@@ -3,6 +3,9 @@ extends PathFollow2D
 @export var reverse: bool = false
 @export var travel_speed: float = 1.5
 
+func _ready() -> void:
+	use_parent_material = true
+
 func _process(delta: float) -> void:
 	#print_debug("ProjectileMovement: progress_ratio =", progress_ratio)
 	

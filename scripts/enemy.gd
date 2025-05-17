@@ -9,12 +9,17 @@ var back_data = []
 var current_beat_index = 0
 var current_melody_index = 0
 
+@export var file_path: String = ""
+@export var parent_material: bool = false
+@export var block_tile_prob: float = 0.15
+
 @onready var audio_player = $AudioStreamPlayer2D
-@onready var animation: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hit: AudioStreamPlayer2D = $Hit
 @onready var dead: AudioStreamPlayer2D = $Dead
 @onready var enemy: CharacterBody2D = $"."
 @onready var transition: CanvasLayer = $"../Transition"
+@onready var player: CharacterBody2D = $"../Player"
 
 @onready var health: ProgressBar = $Health
 const MAX_HEALTH := 100
@@ -34,9 +39,10 @@ var health_hide_timer: Timer
 
 
 func _ready():
+	audio_player.play()
+	use_parent_material = true
 	randomize()
 	load_data()
-	audio_player.play()
 	
 	current_health = MAX_HEALTH
 	health.min_value = 0
@@ -55,7 +61,12 @@ func _ready():
 	health.visible = false
 	
 	$CollisionShape2D.connect("body_entered", Callable(self, "_on_body_entered"))
+	_monitor_audio_end()
 
+func _monitor_audio_end() -> void:
+	await get_tree().create_timer(2.0).timeout
+	await audio_player.finished
+	player.die()
 
 func take_damage(amount: int) -> void:
 	hit.play()
@@ -92,7 +103,7 @@ func _on_death_anim_done() -> void:
 
 
 func load_data():
-	var file = FileAccess.open("res://assets/Songs/i_wanna_be_your_slave/beats.json", FileAccess.READ)
+	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		var json_text = file.get_as_text()
 		var json_parser = JSON.new()
@@ -125,6 +136,7 @@ func _process(delta):
 		for tile_index in tile_indices:
 			spawn_projectile_on_tile(tile_index, "melody")
 		current_melody_index += 1
+		
 		
 	#while current_melody_index < back_data.size() and audio_player.get_playback_position() >= back_data[current_melody_index]["time"]:
 		#var back_info = back_data[current_melody_index]
@@ -188,7 +200,7 @@ func get_melody_tile_indices(base_index: int, count: int) -> Array:
 
 
 var last_spawn_info = {}
-var spawn_threshold: float = 0.2
+@export var spawn_threshold: float = 0.15
 
 func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat"):
 	var current_time = audio_player.get_playback_position()
@@ -201,6 +213,8 @@ func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat")
 	last_spawn_info[tile_index] = { "time": current_time, "type": projectile_type }
 	
 	var projectile = ProjectileScene.instantiate()
+	projectile.parent_material = parent_material
+	projectile.block_tile_prob = block_tile_prob
 	projectile.add_to_group("projectile")
 	
 	if projectile_type == "beat":
@@ -210,15 +224,22 @@ func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat")
 	elif projectile_type == "back":
 		projectile.modulate = Color(0, 1, 0)      # Green
 
-	var pathfollow = PathFollow2D.new()
+	var mat = ShaderMaterial.new()
+	mat.shader = preload("res://shaders/trippy.gdshader")
 	
+	var pathfollow = PathFollow2D.new()
+	pathfollow.material = mat
 	pathfollow.loop = false
 	pathfollow.cubic_interp = false    
 	pathfollow.rotates = false
 	pathfollow.rotation_degrees = 0
 	pathfollow.set_script(preload("res://scripts/ProjectileMovement.gd"))
+
+	var spr = Sprite2D.new()
+	spr.use_parent_material = true
 	
+	pathfollow.add_child(spr)
 	pathfollow.add_child(projectile)
 	path_follow_nodes[tile_index].add_child(pathfollow)
-	
+	pathfollow.use_parent_material = true
 	projectile.position = Vector2.ZERO

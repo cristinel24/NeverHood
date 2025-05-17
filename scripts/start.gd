@@ -8,4 +8,5 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
+		battle_select.get_tree().paused = false
 		battle_select.visible = true

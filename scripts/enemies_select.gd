@@ -3,17 +3,20 @@ extends Node2D
 @onready var select: AudioStreamPlayer2D = $"../Audio/select"
 @onready var transition: CanvasLayer     = $"../Transition"
 @onready var hover: AudioStreamPlayer2D = $"../Audio/hover"
+@onready var battle_select: Node2D = $".."
+@onready var tips: Label = $"../Tips"
 
 @onready var buttons: Array[Button] = [
 	get_node("./Frog/Button"),
 	get_node("./Zig/Button"),
-	get_node("./Orange/Button"),
 	get_node("./Rasta/Button"),
+	get_node("./Orange/Button"),
 	get_node("./ZobTheZombie/Button"),
 ]
 var current_index: int = 0 
 
 func _ready() -> void:
+	tips.refresh()
 	transition.visible = false
 	print(buttons)
 
@@ -21,7 +24,7 @@ func _ready() -> void:
 		_update_selection(0)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo:
+	if event is InputEventKey and event.pressed and not event.echo and battle_select.visible:
 		if event.keycode == KEY_D:
 			_select_next()
 			get_viewport().set_input_as_handled()   # ← mark it handled :contentReference[oaicite:0]{index=0}
@@ -49,7 +52,8 @@ func _update_selection(new_index: int) -> void:
 	btn.grab_focus()
 
 func _on_button_pressed(clicked_button: Button) -> void:
-	# Sync keyboard nav
+	if not battle_select.visible:
+		return
 	var idx = buttons.find(clicked_button)
 	if idx != -1:
 		_update_selection(idx)

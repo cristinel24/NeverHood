@@ -1,0 +1,211 @@
+[gd_scene load_steps=28 format=3 uid="uid://dnm3g7t404fi4"]
+
+[ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/Transition.tscn" id="1_5xu4k"]
+[ext_resource type="Script" uid="uid://cikjgovmlb63r" path="res://scripts/back_to_menu.gd" id="1_nll01"]
+[ext_resource type="Texture2D" uid="uid://dnhkhmi5aeqdk" path="res://assets/Sprite/MaskedGuardianBattle_Roots.png" id="2_bneqb"]
+[ext_resource type="PackedScene" uid="uid://c5px7yvakmssq" path="res://scene/enemy.tscn" id="4_i01cx"]
+[ext_resource type="Texture2D" uid="uid://cbps651voj0rn" path="res://assets/Texture2D/RastaBeast #11612.png" id="5_5f8sx"]
+[ext_resource type="Shader" uid="uid://c3uqfxonq07fy" path="res://shaders/dark_vignete.gdshader" id="5_kyqbn"]
+[ext_resource type="PackedScene" uid="uid://bllkjmm50mii" path="res://scene/battleground.tscn" id="6_1ri73"]
+[ext_resource type="Texture2D" uid="uid://w4pi2sd5nuqp" path="res://assets/Texture2D/GenericBattleBackground.png" id="7_6e7xf"]
+[ext_resource type="Shader" uid="uid://b5pod3eq53a06" path="res://shaders/rasta.gdshader" id="7_nll01"]
+[ext_resource type="AudioStream" uid="uid://b2pl114s6wuom" path="res://assets/Songs/korn/Korn - Y'all Want a Single.mp3" id="8_i01cx"]
+[ext_resource type="PackedScene" uid="uid://ry1x18d8fpi4" path="res://scene/player.tscn" id="8_n2hnf"]
+[ext_resource type="AudioStream" uid="uid://d1xt4fihwkkni" path="res://assets/AudioClip/UndeadVoice.wav" id="9_5f8sx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nll01"]
+shader = ExtResource("7_nll01")
+shader_parameter/color_bleed_enabled = true
+shader_parameter/chromatic_abberation_enabled = true
+shader_parameter/film_grain_enabled = false
+shader_parameter/sharpness_enabled = true
+shader_parameter/chromatic_abberation_seperation = 0.1
+shader_parameter/chromatic_abberation_intensity = 3.0
+shader_parameter/chromatic_abberation_blur_strength = 2.0
+shader_parameter/film_grain_intensity = 0.0
+shader_parameter/grain_size = 0.0
+shader_parameter/darkness_clamp = 0.0
+shader_parameter/sharpness_size = 0.0
+shader_parameter/sharpness_intensity = 0.7
+shader_parameter/color_bleed_seperation = 0.1
+shader_parameter/color_bleed_intensity = 1.0
+shader_parameter/anti_bleed_intensity = 1.53
+shader_parameter/color_bleed_blur_strength = 1.0
+shader_parameter/color_bleed_quality = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i01cx"]
+shader = ExtResource("5_kyqbn")
+shader_parameter/radius = 1.5
+shader_parameter/speed = 1.0
+shader_parameter/effect_color = Color(0.251, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcns7"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(384, 0, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw3to"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(0, 0, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kaur"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(128, 0, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1kqm"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(640, 0, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_funvm"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(256, 0, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blm1f"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(0, 165, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw7pk"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(128, 165, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wf1f"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(256, 165, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtuer"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(384, 165, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfnhc"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(512, 165, 127, 165)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nupc"]
+atlas = ExtResource("5_5f8sx")
+region = Rect2(640, 165, 127, 165)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k323"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcns7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw3to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kaur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1kqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_funvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blm1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wf1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtuer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfnhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nupc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sw2j7"]
+radius = 4.09575
+height = 256.0
+
+[node name="Rasta" type="Node2D"]
+material = SubResource("ShaderMaterial_nll01")
+script = ExtResource("1_nll01")
+
+[node name="Transition" parent="." instance=ExtResource("1_5xu4k")]
+follow_viewport_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(24, -48)
+scale = Vector2(4.34199, 5.72558)
+texture = ExtResource("2_bneqb")
+
+[node name="Black" type="ColorRect" parent="Background"]
+z_index = -1
+material = SubResource("ShaderMaterial_i01cx")
+anchors_preset = -1
+anchor_left = 0.473
+anchor_top = 0.567
+anchor_right = 0.473
+anchor_bottom = 0.567
+offset_left = -234.492
+offset_top = -107.535
+offset_right = 32.508
+offset_bottom = 5.465
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Enemy" parent="." instance=ExtResource("4_i01cx")]
+position = Vector2(8, 72)
+scale = Vector2(1.79219, 1.95324)
+file_path = "D:/FII/everhood/assets/Songs/korn/beats.json"
+MAX_HITS = 35
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(8.98017e-08, -126.969)
+scale = Vector2(1.08052, 0.975679)
+sprite_frames = SubResource("SpriteFrames_3k323")
+autoplay = "default"
+frame = 10
+frame_progress = 0.353539
+
+[node name="Health" type="ProgressBar" parent="Enemy"]
+offset_left = 66.9572
+offset_top = -184.309
+offset_right = 72.9572
+offset_bottom = -50.3092
+rotation = 1.57079
+step = 0.1
+fill_mode = 3
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(4.46381, -61.4364)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_sw2j7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("8_i01cx")
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Enemy"]
+stream = ExtResource("9_5f8sx")
+volume_db = 10.0
+
+[node name="Battleground" parent="." instance=ExtResource("6_1ri73")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Battleground"]
+use_parent_material = true
+position = Vector2(8, 136)
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("7_6e7xf")
+
+[node name="Player" parent="." instance=ExtResource("8_n2hnf")]
+use_parent_material = false
+position = Vector2(8, 304)
+scale = Vector2(1.3, 1.3)
+platform_on_leave = 2

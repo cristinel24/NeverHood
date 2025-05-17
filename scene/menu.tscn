@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2uac6dvoegbr"]
+[gd_scene load_steps=29 format=3 uid="uid://b2uac6dvoegbr"]
 
 [ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/Transition.tscn" id="1_dyuxe"]
 [ext_resource type="Texture2D" uid="uid://bkcby8ii43ebp" path="res://assets/Sprite/TheImage.png" id="1_e5g8k"]
@@ -8,16 +8,22 @@
 [ext_resource type="Script" uid="uid://dld53u1l1mwcl" path="res://scripts/scene_button.gd" id="4_6fejx"]
 [ext_resource type="FontFile" uid="uid://l72hrf2f3tbk" path="res://assets/Font/DTM-Mono.otf" id="4_nuiae"]
 [ext_resource type="Texture2D" uid="uid://qdvdtvlmpy0o" path="res://assets/Texture2D/ClubberPortraitAngry.png" id="4_wd6lm"]
-[ext_resource type="PackedScene" uid="uid://8x2stmx0ghml" path="res://scene/levels/frog.tscn" id="6_ho73k"]
+[ext_resource type="PackedScene" uid="uid://dm4tgkq71nfkn" path="res://scene/levels/frog.tscn" id="6_ho73k"]
 [ext_resource type="Texture2D" uid="uid://d20idqmiq6fp7" path="res://assets/Texture2D/WhiteMagePortraitHappy.png" id="6_pb5j1"]
 [ext_resource type="Texture2D" uid="uid://uo5ekssoo5jf" path="res://assets/Texture2D/ZobTheZombiePortraitLookAround.png" id="7_6fejx"]
 [ext_resource type="Texture2D" uid="uid://cei03gk0m4yhh" path="res://assets/Texture2D/RastaBeast_Portrait.png" id="9_ho73k"]
 [ext_resource type="Shader" uid="uid://d0inmm6ax10i5" path="res://shaders/menu.gdshader" id="9_nuiae"]
+[ext_resource type="PackedScene" uid="uid://b7keum3rkcgyn" path="res://scene/levels/zig.tscn" id="10_wbutu"]
+[ext_resource type="PackedScene" uid="uid://8imjmdkmm0km" path="res://scene/levels/dr_orange.tscn" id="12_6i5tc"]
 [ext_resource type="AudioStream" uid="uid://dqsbwh225xfu1" path="res://assets/AudioClip/Energy - electric_fuse-08.wav" id="13_ho73k"]
+[ext_resource type="PackedScene" uid="uid://dnm3g7t404fi4" path="res://scene/levels/rasta.tscn" id="14_026qx"]
 [ext_resource type="Texture2D" uid="uid://cbbul8esqip80" path="res://assets/Texture2D/TutorialForIdiots.png" id="15_wmmby"]
 [ext_resource type="Texture2D" uid="uid://chk3clvinyidy" path="res://assets/Sprite/Keyboard_space.png" id="16_qp55b"]
+[ext_resource type="PackedScene" uid="uid://c6jpwbc0wcv1r" path="res://scene/levels/zob.tscn" id="17_8pci4"]
 [ext_resource type="Texture2D" uid="uid://bqjjpen36v836" path="res://assets/Sprite/Keyboard_ESC.png" id="17_wbutu"]
 [ext_resource type="AudioStream" uid="uid://bkog4ip3eovlj" path="res://assets/AudioClip/Click.wav" id="18_qp55b"]
+[ext_resource type="FontFile" uid="uid://cxshv3ctwj1oc" path="res://assets/Font/russian DTM.otf" id="23_ahy0u"]
+[ext_resource type="Script" uid="uid://dh1jwdtckum5u" path="res://scripts/tips.gd" id="24_bh37c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pb5j1"]
 font = ExtResource("4_nuiae")
@@ -25,39 +31,40 @@ font_size = 14
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dyuxe"]
 shader = ExtResource("9_nuiae")
-shader_parameter/progress = 0.0
-shader_parameter/width = 0.002
-shader_parameter/timed = true
+shader_parameter/size_effect = 2.9
 shader_parameter/speed = 1.0
-shader_parameter/angle = 1.0
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5j1"]
 resource_local_to_scene = true
 shader = ExtResource("9_nuiae")
-shader_parameter/progress = 0.0
-shader_parameter/width = 0.015
-shader_parameter/timed = true
-shader_parameter/speed = 1.0
-shader_parameter/angle = 1.0
+shader_parameter/size_effect = 5.0
+shader_parameter/speed = 0.8
+shader_parameter/highlight_strength = 0.5
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_g0o0q"]
+font = ExtResource("23_ahy0u")
+font_size = 14
 
 [node name="BattleSelect" type="Node2D"]
 
 [node name="Transition" parent="." instance=ExtResource("1_dyuxe")]
 follow_viewport_enabled = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-metadata/_edit_lock_ = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(953.209, 541.5)
 scale = Vector2(2.55438, 2.01661)
 texture = ExtResource("1_e5g8k")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(952, 544)
-scale = Vector2(7.5, 4.25)
+position = Vector2(572, 320)
+scale = Vector2(4.53125, 2.5)
 texture = ExtResource("2_8hxod")
 metadata/_edit_lock_ = true
 
@@ -66,8 +73,8 @@ script = ExtResource("3_ho73k")
 metadata/_edit_lock_ = true
 
 [node name="Frog" type="Sprite2D" parent="Enemies"]
-position = Vector2(318.875, 552.875)
-scale = Vector2(3.45, 3.37959)
+position = Vector2(200, 320)
+scale = Vector2(2.31705, 2.29944)
 texture = ExtResource("3_1qlln")
 
 [node name="Button" type="Button" parent="Enemies/Frog"]
@@ -82,22 +89,24 @@ toggle_mode = true
 script = ExtResource("4_6fejx")
 next_scene = ExtResource("6_ho73k")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Enemies/Frog"]
 modulate = Color(2.99614e-06, 0.526791, 1.05888e-06, 1)
 offset_left = -25.5072
 offset_top = 30.773
 offset_right = 28.4928
-offset_bottom = 48.7729
+offset_bottom = 48.773
 mouse_filter = 0
 text = "FROG"
 label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Zig" type="Sprite2D" parent="Enemies"]
-position = Vector2(638.875, 552.875)
-scale = Vector2(3.45, 3.45)
+position = Vector2(384, 320)
+scale = Vector2(2.35852, 2.24943)
 texture = ExtResource("4_wd6lm")
 
 [node name="Button" type="Button" parent="Enemies/Zig"]
@@ -109,6 +118,10 @@ offset_top = -28.0
 offset_right = 28.0
 offset_bottom = 28.0
 toggle_mode = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("10_wbutu")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Enemies/Zig"]
 modulate = Color(1, 0.913725, 0, 1)
@@ -119,36 +132,11 @@ offset_bottom = 48.1449
 text = "ZIG"
 label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
-
-[node name="Orange" type="Sprite2D" parent="Enemies"]
-position = Vector2(958.875, 552.875)
-scale = Vector2(3.45, 3.45)
-texture = ExtResource("6_pb5j1")
-
-[node name="Button" type="Button" parent="Enemies/Orange"]
-modulate = Color(1, 0.466667, 0.0705882, 1)
-self_modulate = Color(1, 0.427451, 0, 1)
-show_behind_parent = true
-offset_left = -28.0
-offset_top = -28.0
-offset_right = 28.0
-offset_bottom = 28.0
-toggle_mode = true
-
-[node name="Label" type="Label" parent="Enemies/Orange"]
-modulate = Color(1, 0.427451, 0, 1)
-offset_left = -27.8261
-offset_top = 30.1449
-offset_right = 31.1739
-offset_bottom = 48.1449
-text = "DOCTOR
-ORANGE"
-label_settings = SubResource("LabelSettings_pb5j1")
-horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Rasta" type="Sprite2D" parent="Enemies"]
-position = Vector2(1278.88, 552.875)
-scale = Vector2(3.40909, 3.40909)
+position = Vector2(576, 320)
+scale = Vector2(2.28636, 2.28636)
 texture = ExtResource("9_ho73k")
 
 [node name="Button" type="Button" parent="Enemies/Rasta"]
@@ -160,6 +148,9 @@ offset_top = -28.0
 offset_right = 28.0
 offset_bottom = 28.0
 toggle_mode = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("14_026qx")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Enemies/Rasta"]
 modulate = Color(1, 0, 0, 1)
@@ -170,10 +161,41 @@ offset_bottom = 69.5067
 text = "RASTA"
 label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Orange" type="Sprite2D" parent="Enemies"]
+position = Vector2(768, 320)
+scale = Vector2(2.30682, 2.30682)
+texture = ExtResource("6_pb5j1")
+
+[node name="Button" type="Button" parent="Enemies/Orange"]
+modulate = Color(1, 0.466667, 0.0705882, 1)
+self_modulate = Color(1, 0.427451, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("12_6i5tc")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Enemies/Orange"]
+modulate = Color(1, 0.427451, 0, 1)
+offset_left = -27.8261
+offset_top = 30.1449
+offset_right = 31.1739
+offset_bottom = 48.1449
+text = "DOCTOR
+ORANGE"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="ZobTheZombie" type="Sprite2D" parent="Enemies"]
-position = Vector2(1598.88, 552.875)
-scale = Vector2(3.52273, 3.52273)
+position = Vector2(960, 320)
+scale = Vector2(2.2625, 2.2625)
 texture = ExtResource("7_6fejx")
 
 [node name="Button" type="Button" parent="Enemies/ZobTheZombie"]
@@ -186,6 +208,9 @@ offset_right = 28.0
 offset_bottom = 28.0
 toggle_mode = true
 flat = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("17_8pci4")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Enemies/ZobTheZombie"]
 modulate = Color(0.155592, 0.258503, 0, 1)
@@ -199,24 +224,27 @@ offset_bottom = 47.5226
 text = "ZOB"
 label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Controls" type="Node2D" parent="."]
 position = Vector2(0, -8)
 
 [node name="arrows" type="Sprite2D" parent="Controls"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(1080, 1008)
+position = Vector2(609.464, 595.536)
+scale = Vector2(0.555245, 0.555245)
 texture = ExtResource("15_wmmby")
 
 [node name="space" type="Sprite2D" parent="Controls"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(896, 1016)
-scale = Vector2(1.47143, 1.47143)
+position = Vector2(504, 608)
+scale = Vector2(0.913493, 0.913493)
 texture = ExtResource("16_qp55b")
 
 [node name="esc" type="Sprite2D" parent="Controls"]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(976, 969)
+position = Vector2(552, 576)
+scale = Vector2(0.557692, 0.557692)
 texture = ExtResource("17_wbutu")
 
 [node name="Audio" type="Node2D" parent="."]
@@ -227,3 +255,16 @@ stream = ExtResource("13_ho73k")
 
 [node name="hover" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("18_qp55b")
+
+[node name="Tips" type="Label" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.486275)
+offset_top = 80.0
+offset_right = 1144.0
+offset_bottom = 165.0
+size_flags_vertical = 0
+text = "PRO TIP: git gud"
+label_settings = SubResource("LabelSettings_g0o0q")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("24_bh37c")

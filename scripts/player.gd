@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const NUM_TILES = 5
-const TILE_WIDTH = 100.0
+const TILE_WIDTH = 120.0
 const MIDDLE_TILE_INDEX = 2
 const MAX_TILE_INDEX = NUM_TILES - 1
 
@@ -158,6 +158,7 @@ func _physics_process(delta: float) -> void:
 			for body in overlapping:
 				if body.is_in_group("projectile") and body is CanvasItem and body.dodge == true:
 					var new_color: Color = body.modulate
+					print(new_color)
 					if charged == 0:
 						charged = 1
 						charge_color = new_color
@@ -259,11 +260,6 @@ func die() -> void:
 	var go = get_tree().get_current_scene().get_node("Transition")
 	await go.game_over()
 	
-	while not Input.is_key_pressed(Key.KEY_SPACE):
-		await get_tree().process_frame
-
-	get_tree().paused = false
-	get_tree().reload_current_scene()
 
 func _on_game_over_fade_finished(anim_name: String, ui: Node) -> void:
 	if anim_name == "fade_to_black":
@@ -329,7 +325,6 @@ func spawn_projectile_on_tile(tile_index, color):
 	attack.play()
 	var projectile = ProjectileScene.instantiate()
 	projectile.modulate = color
-	projectile.add_to_group("player_projectile")
 	projectile.force_good = true
 
 	var pathfollow = PathFollow2D.new()

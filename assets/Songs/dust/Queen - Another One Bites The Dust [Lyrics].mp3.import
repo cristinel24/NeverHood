@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2q4q74s86ygn"
+path="res://.godot/imported/Queen - Another One Bites The Dust [Lyrics].mp3-e5735cc2c8e0da15a6d10d019aaf16a0.mp3str"
+
+[deps]
+
+source_file="res://assets/Songs/dust/Queen - Another One Bites The Dust [Lyrics].mp3"
+dest_files=["res://.godot/imported/Queen - Another One Bites The Dust [Lyrics].mp3-e5735cc2c8e0da15a6d10d019aaf16a0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
