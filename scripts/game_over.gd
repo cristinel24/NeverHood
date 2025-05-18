@@ -12,9 +12,10 @@ extends CanvasLayer
 @onready var frog: Node2D = $".."
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../Enemy/AudioStreamPlayer2D"
 @export var in_menu: bool = false
-
+var exited = false
 
 func _ready() -> void:
+	exited = false
 	anim.play("RESET")
 	paused.visible = false
 	dead.visible = false
@@ -31,9 +32,10 @@ func game_over() -> void:
 	black.visible = true
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not in_menu:
+	if event is InputEventKey and event.pressed and not in_menu and not exited:
 		if event.keycode == KEY_ESCAPE:
 			if paused.visible == true and not dead.visible:
+				exited = true
 				paused.visible = false
 				audio_stream_player_2d.stop()
 				get_tree().paused = true
@@ -45,6 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif not dead.visible:
 				pause()
 			elif dead.visible:
+				exited = true
 				menu.play()
 				await fade_to_black()
 				await menu.finished

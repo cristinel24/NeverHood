@@ -259,7 +259,7 @@ position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
 file_path = "res://assets/Songs/loathe/beats.json"
 block_tile_prob = 0.3
-MAX_HITS = 35
+MAX_HITS = 40
 spawn_threshold = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]

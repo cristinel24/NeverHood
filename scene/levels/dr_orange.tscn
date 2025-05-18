@@ -526,7 +526,7 @@ position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
 file_path = "res://assets/Songs/bwaba/beats.json"
 parent_material = true
-MAX_HITS = 25
+MAX_HITS = 30
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(-4.46381, -86.0109)

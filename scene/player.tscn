@@ -1,9 +1,8 @@
-[gd_scene load_steps=148 format=3 uid="uid://ry1x18d8fpi4"]
+[gd_scene load_steps=131 format=3 uid="uid://ry1x18d8fpi4"]
 
 [ext_resource type="Script" uid="uid://c3ena40pkv5uc" path="res://scripts/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://fu1tnfvj438g" path="res://assets/Texture2D/Player_Battle.png" id="1_xo3ru"]
 [ext_resource type="Texture2D" uid="uid://b5004jvs0tb3g" path="res://assets/Texture2D/AnimeSmoke.png" id="3_fvtld"]
-[ext_resource type="Texture2D" uid="uid://bgjbws4g7eprn" path="res://assets/Texture2D/PixelSmoke.png" id="4_ct4mp"]
 [ext_resource type="Texture2D" uid="uid://dusfwj0gmouct" path="res://assets/Texture2D/PlayerKnight_Battle.png" id="5_s4jxa"]
 [ext_resource type="Texture2D" uid="uid://bl6wqpdcs6pqi" path="res://assets/Texture2D/PlayerTennis_Battle.png" id="6_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://bnuofbxlubr2a" path="res://assets/Texture2D/HelathBar.png" id="7_g2vtq"]
@@ -925,70 +924,6 @@ animations = [{
 "speed": 60.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3008"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wpsxb"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rt08c"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6vs06"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4uieu"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wapc"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xj5ck"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6lu7o"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rkx0"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wyue1"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oyaf6"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mtygy"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fmxba"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8hgv"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_od4qb"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(96, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wsvhi"]
-atlas = ExtResource("4_ct4mp")
-region = Rect2(112, 16, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_slqdk"]
 animations = [{
 "frames": [],
@@ -996,60 +931,12 @@ animations = [{
 "name": &"no_smoke",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3008")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wpsxb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rt08c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6vs06")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4uieu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5wapc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xj5ck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6lu7o")
-}],
+"frames": [],
 "loop": false,
 "name": &"smoke_1",
 "speed": 60.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8rkx0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wyue1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oyaf6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mtygy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fmxba")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n8hgv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_od4qb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wsvhi")
-}],
+"frames": [],
 "loop": false,
 "name": &"smoke_2",
 "speed": 60.0
@@ -1115,7 +1002,7 @@ use_parent_material = true
 use_parent_material = true
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_oh5ij")
-animation = &"idle_2"
+animation = &"jump_2"
 autoplay = "idle_0"
 
 [node name="Charge1" type="AnimatedSprite2D" parent="Characters/Base"]
@@ -1200,11 +1087,11 @@ frame_progress = 1.0
 [node name="JumpSmoke" type="AnimatedSprite2D" parent="Misc"]
 modulate = Color(1, 1, 1, 0.443137)
 use_parent_material = true
-position = Vector2(-1, -6)
+position = Vector2(0, -9.53674e-07)
 rotation = 3.14159
 scale = Vector2(2.46875, 1.71875)
 sprite_frames = SubResource("SpriteFrames_slqdk")
-animation = &"no_smoke"
+animation = &"smoke_2"
 
 [node name="Fire" type="AnimatedSprite2D" parent="Misc"]
 visible = false
