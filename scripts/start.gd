@@ -5,8 +5,14 @@ extends Node2D
 
 func _ready() -> void:
 	music.play(11.5)
+	_replay_music()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		battle_select.get_tree().paused = false
 		battle_select.visible = true
+
+func _replay_music():
+	await music.finished
+	music.play()
+	_replay_music()

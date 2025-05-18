@@ -16,6 +16,7 @@ extends Node2D
 var current_index: int = 0 
 
 func _ready() -> void:
+	transition.in_menu = true
 	tips.refresh()
 	transition.visible = false
 	print(buttons)

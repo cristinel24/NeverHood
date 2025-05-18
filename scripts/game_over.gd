@@ -11,7 +11,7 @@ extends CanvasLayer
 @onready var black: ColorRect = $Dead/black
 @onready var frog: Node2D = $".."
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../Enemy/AudioStreamPlayer2D"
-
+@export var in_menu: bool = false
 
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func game_over() -> void:
 	black.visible = true
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.pressed and not in_menu:
 		if event.keycode == KEY_ESCAPE:
 			if paused.visible == true and not dead.visible:
 				paused.visible = false

@@ -214,7 +214,7 @@ texture = ExtResource("1_qpk70")
 [node name="Enemy" parent="." instance=ExtResource("3_xwcet")]
 position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
-file_path = "D:/FII/everhood/assets/Songs/dust/beats.json"
+file_path = "res://assets/Songs/dust/beats.json"
 MAX_HITS = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]

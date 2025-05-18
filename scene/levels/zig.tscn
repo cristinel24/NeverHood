@@ -196,7 +196,7 @@ offset_bottom = 312.0
 [node name="Enemy" parent="." instance=ExtResource("2_6as0e")]
 position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
-file_path = "D:/FII/everhood/assets/Songs/i_wanna_be_your_slave/beats.json"
+file_path = "res://assets/Songs/i_wanna_be_your_slave/beats.json"
 MAX_HITS = 30
 spawn_threshold = 0.2
 

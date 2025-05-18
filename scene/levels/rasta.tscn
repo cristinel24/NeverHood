@@ -162,7 +162,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Enemy" parent="." instance=ExtResource("4_i01cx")]
 position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
-file_path = "D:/FII/everhood/assets/Songs/korn/beats.json"
+file_path = "res://assets/Songs/korn/beats.json"
 MAX_HITS = 35
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]

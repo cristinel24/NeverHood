@@ -316,9 +316,10 @@ func flicker_health_ui() -> void:
 	health_flicker_active = false
 	
 func make_temp_invincible(time: float) -> void:
-	is_invincible = true
-	await get_tree().create_timer(time).timeout
-	is_invincible = false
+	if not is_invincible:
+		is_invincible = true
+		await get_tree().create_timer(time).timeout
+		is_invincible = false
 	
 	
 func spawn_projectile_on_tile(tile_index, color):

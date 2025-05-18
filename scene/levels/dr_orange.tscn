@@ -500,9 +500,9 @@ frame_progress = 0.294897
 [node name="Enemy" parent="." instance=ExtResource("3_c0mrw")]
 position = Vector2(8, 72)
 scale = Vector2(1.79219, 1.95324)
-file_path = "D:/FII/everhood/assets/Songs/bwaba/beats.json"
+file_path = "res://assets/Songs/bwaba/beats.json"
 parent_material = true
-MAX_HITS = 35
+MAX_HITS = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
 position = Vector2(-4.46381, -86.0109)
