@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bdfhgxc0xnsji" path="res://scripts/start.gd" id="1_xmel7"]
 [ext_resource type="PackedScene" uid="uid://b2uac6dvoegbr" path="res://scene/menu.tscn" id="2_bhewb"]
 [ext_resource type="FontFile" uid="uid://l72hrf2f3tbk" path="res://assets/Font/DTM-Mono.otf" id="2_xmel7"]
-[ext_resource type="Shader" uid="uid://bqy3728tjcp8c" path="res://shaders/wavy.gdshader" id="3_7xr4q"]
+[ext_resource type="Shader" uid="uid://wv4rpvd6lt1c" path="res://shaders/wavy_logo.gdshader" id="3_7xr4q"]
 [ext_resource type="AudioStream" uid="uid://uo0gu3mob0nb" path="res://assets/AudioClip/SpainOut.wav" id="5_bnuxd"]
 [ext_resource type="Texture2D" uid="uid://dow7n6d8ly1of" path="res://assets/Texture2D/NeverHoodLogo.png" id="6_srnb1"]
 

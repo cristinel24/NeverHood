@@ -149,7 +149,6 @@ long_pause = true
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 
 [node name="Wavy" type="ColorRect" parent="PostProcessing"]
-visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_3h0rb")
 offset_left = -1400.0

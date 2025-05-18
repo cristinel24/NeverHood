@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://8imjmdkmm0km"]
+[gd_scene load_steps=73 format=3 uid="uid://8imjmdkmm0km"]
 
 [ext_resource type="Script" uid="uid://cikjgovmlb63r" path="res://scripts/back_to_menu.gd" id="1_c0mrw"]
 [ext_resource type="PackedScene" uid="uid://bnsa7kachyj5w" path="res://scene/Transition.tscn" id="1_sohk3"]
@@ -26,6 +26,20 @@ shader_parameter/frequency_vertical = 1.0
 shader_parameter/speed_vertical = 1.0
 shader_parameter/scroll_direction = Vector2(0, 0)
 shader_parameter/scrolling_speed = 0.9
+shader_parameter/enable_palette_cycling = false
+shader_parameter/palette_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffovs"]
+shader = ExtResource("8_r0imk")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.2
+shader_parameter/frequency = 10.0
+shader_parameter/speed = 2.0
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
 shader_parameter/enable_palette_cycling = false
 shader_parameter/palette_speed = 0.1
 
@@ -447,6 +461,16 @@ height = 256.0
 [node name="DrOrange" type="Node2D"]
 material = SubResource("ShaderMaterial_r0imk")
 script = ExtResource("1_c0mrw")
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Wow" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_ffovs")
+offset_left = -584.0
+offset_top = -336.0
+offset_right = 584.0
+offset_bottom = 328.0
 
 [node name="Transition" parent="." instance=ExtResource("1_sohk3")]
 follow_viewport_enabled = true

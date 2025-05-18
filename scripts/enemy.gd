@@ -213,6 +213,7 @@ func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat")
 	last_spawn_info[tile_index] = { "time": current_time, "type": projectile_type }
 	
 	var projectile = ProjectileScene.instantiate()
+	projectile.process_mode = Node.PROCESS_MODE_ALWAYS
 	projectile.parent_material = parent_material
 	projectile.block_tile_prob = block_tile_prob
 	projectile.add_to_group("projectile")
@@ -237,6 +238,12 @@ func spawn_projectile_on_tile(tile_index: int, projectile_type: String = "beat")
 
 	var spr = Sprite2D.new()
 	spr.use_parent_material = true
+	if parent_material:
+		var cool = projectile.get_node("GoodCol").get_node("Cool") as Sprite2D
+		cool.material = mat
+		var bad = projectile.get_node("BadCol").get_node("Bad") as Sprite2D
+		bad.material = mat
+		
 	
 	pathfollow.add_child(spr)
 	pathfollow.add_child(projectile)
