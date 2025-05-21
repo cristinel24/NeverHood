@@ -9,8 +9,8 @@ extends Node2D
 @onready var buttons: Array[Button] = [
 	get_node("./Frog/Button"),
 	get_node("./Zig/Button"),
-	get_node("./Rasta/Button"),
 	get_node("./Orange/Button"),
+	get_node("./Rasta/Button"),
 	get_node("./ZobTheZombie/Button"),
 ]
 var current_index: int = 0 

@@ -9,8 +9,21 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
-		battle_select.get_tree().paused = false
-		battle_select.visible = true
+		if event.keycode == KEY_ESCAPE and not battle_select.visible:
+			var transition = battle_select.get_node("Transition")
+			var menu = battle_select.get_node("Transition/Audio/Menu") as AudioStreamPlayer2D
+			var anim = transition.get_node("AnimationPlayer") as AnimationPlayer
+			music.stop()
+			menu.play()
+			anim.play("fade_to_black")
+			await anim.animation_finished
+			await menu.finished
+			get_tree().quit()
+		elif event.keycode == KEY_ESCAPE and battle_select.visible:
+			battle_select.visible = false
+		else:
+			battle_select.get_tree().paused = false
+			battle_select.visible = true
 
 func _replay_music():
 	await music.finished

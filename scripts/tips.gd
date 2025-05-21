@@ -3,6 +3,7 @@ extends Label
 var tips = [
 	"git gud",
 	"don't die lol",
+	"skill issue",
 	"Some projectiles wanna eat you. Don't absorb them",
 	"Yellow 👋 Double Damage",
 	"space to jump",

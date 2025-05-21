@@ -135,37 +135,8 @@ label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Rasta" type="Sprite2D" parent="Enemies"]
-position = Vector2(576, 320)
-scale = Vector2(2.28636, 2.28636)
-texture = ExtResource("9_ho73k")
-
-[node name="Button" type="Button" parent="Enemies/Rasta"]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 0, 0, 1)
-show_behind_parent = true
-offset_left = -28.0
-offset_top = -28.0
-offset_right = 28.0
-offset_bottom = 28.0
-toggle_mode = true
-script = ExtResource("4_6fejx")
-next_scene = ExtResource("14_026qx")
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="Enemies/Rasta"]
-modulate = Color(1, 0, 0, 1)
-offset_left = -28.16
-offset_top = 30.5067
-offset_right = 30.84
-offset_bottom = 69.5067
-text = "RASTA"
-label_settings = SubResource("LabelSettings_pb5j1")
-horizontal_alignment = 1
-metadata/_edit_lock_ = true
-
 [node name="Orange" type="Sprite2D" parent="Enemies"]
-position = Vector2(768, 320)
+position = Vector2(576, 320)
 scale = Vector2(2.30682, 2.30682)
 texture = ExtResource("6_pb5j1")
 
@@ -190,6 +161,35 @@ offset_right = 31.1739
 offset_bottom = 48.1449
 text = "DOCTOR
 ORANGE"
+label_settings = SubResource("LabelSettings_pb5j1")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Rasta" type="Sprite2D" parent="Enemies"]
+position = Vector2(768, 320)
+scale = Vector2(2.28636, 2.28636)
+texture = ExtResource("9_ho73k")
+
+[node name="Button" type="Button" parent="Enemies/Rasta"]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+toggle_mode = true
+script = ExtResource("4_6fejx")
+next_scene = ExtResource("14_026qx")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Enemies/Rasta"]
+modulate = Color(1, 0, 0, 1)
+offset_left = -28.16
+offset_top = 30.5067
+offset_right = 30.84
+offset_bottom = 69.5067
+text = "RASTA"
 label_settings = SubResource("LabelSettings_pb5j1")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
